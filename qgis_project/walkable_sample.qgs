@@ -5,31 +5,31 @@
   <evaluateDefaultValues active="0"/>
   <layer-tree-group expanded="1" checked="Qt::PartiallyChecked" name="">
     <customproperties/>
-    <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Checked" id="Trees_clipped20171214215526399" source="C:/Users/Annie/Documents/qgis_project/Trees_clipped.shp" name="Trees_clipped">
+    <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Checked" id="Trees_clipped20171214215526399" source="C:/Users/Annie/Documents/GitHub/GEO1005_2017_G08/qgis_project/Trees_clipped.shp" name="Trees_clipped">
       <customproperties/>
     </layer-tree-layer>
-    <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Checked" id="POIs_clipped20171216161344746" source="C:/Users/Annie/Documents/qgis_project/POIs_clipped.shp" name="POIs_clipped">
+    <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Checked" id="POIs_clipped20171216161344746" source="C:/Users/Annie/Documents/GitHub/GEO1005_2017_G08/qgis_project/POIs_clipped.shp" name="POIs_clipped">
       <customproperties/>
     </layer-tree-layer>
-    <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Checked" id="Lights_clipped20171216163317551" source="C:/Users/Annie/Documents/qgis_project/Lights_clipped.shp" name="Lights_clipped">
+    <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Checked" id="Lights_clipped20171216163317551" source="C:/Users/Annie/Documents/GitHub/GEO1005_2017_G08/qgis_project/Lights_clipped.shp" name="Lights_clipped">
       <customproperties/>
     </layer-tree-layer>
-    <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Checked" id="Public_stops_clipped20171216161417971" source="C:/Users/Annie/Documents/qgis_project/Public_stops_clipped.shp" name="Public_stops_clipped">
+    <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Checked" id="Public_stops_clipped20171216161417971" source="C:/Users/Annie/Documents/GitHub/GEO1005_2017_G08/qgis_project/Public_stops_clipped.shp" name="Public_stops_clipped">
       <customproperties/>
     </layer-tree-layer>
-    <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Unchecked" id="Roads_clipped_buffers20171215105230953" source="C:/Users/Annie/Documents/qgis_project/Roads_clipped_buffers.shp" name="Roads_clipped_buffers">
+    <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Checked" id="Roads_clipped_buffers20171215105230953" source="C:\Users\Annie\Documents\GitHub\GEO1005_2017_G08\qgis_project\Roads_buffers.shx" name="Roads_buffers">
       <customproperties/>
     </layer-tree-layer>
-    <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Checked" id="Clipped__extent_20171215104100918" source="C:/Users/Annie/Documents/qgis_project/Roads_clipped.shp" name="Roads_clipped">
+    <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Checked" id="Clipped__extent_20171215104100918" source="C:/Users/Annie/Documents/GitHub/GEO1005_2017_G08/qgis_project/Roads_clipped.shp" name="Roads_clipped">
       <customproperties/>
     </layer-tree-layer>
-    <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Checked" id="Buildings_clipped20171214215526396" source="C:/Users/Annie/Documents/qgis_project/Buildings_clipped.shx" name="Buildings_clipped">
+    <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Checked" id="Buildings_clipped20171214215526396" source="C:/Users/Annie/Documents/GitHub/GEO1005_2017_G08/qgis_project/Buildings_clipped.shx" name="Buildings_clipped">
       <customproperties/>
     </layer-tree-layer>
-    <layer-tree-layer expanded="0" providerKey="ogr" checked="Qt::Checked" id="Clipped__extent_20171215105415094" source="C:/Users/Annie/Documents/qgis_project/Landcover_clipped.shp" name="Landcover_clipped">
+    <layer-tree-layer expanded="0" providerKey="ogr" checked="Qt::Checked" id="Clipped__extent_20171215105415094" source="C:/Users/Annie/Documents/GitHub/GEO1005_2017_G08/qgis_project/Landcover_clipped.shp" name="Landcover_clipped">
       <customproperties/>
     </layer-tree-layer>
-    <layer-tree-layer expanded="1" providerKey="" checked="Qt::Unchecked" id="OpenLayers_plugin_layer20171130183244376" source="C:/Desktop/Quarter2/SDSS/project data" name="Google Streets">
+    <layer-tree-layer expanded="1" providerKey="" checked="Qt::Unchecked" id="OpenLayers_plugin_layer20171130183244376" source="C:/Users/Annie/Desktop/Quarter2/SDSS/project data" name="Google Streets">
       <customproperties/>
     </layer-tree-layer>
   </layer-tree-group>
@@ -58,42 +58,46 @@
     </destinationsrs>
     <rendermaptile>0</rendermaptile>
     <layer_coordinate_transform_info>
-      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="roads_Rotterdam20171201094416495"/>
+      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Roads_Rotterdam20171201095610081"/>
+      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:4326" srcDatumTransform="-1" destDatumTransform="-1" layerid="Points_of_Interest20171216155244334"/>
+      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="memory_20171216180110365"/>
+      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Public_stops_clipped20171216161417971"/>
       <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="BAG_2016_Rotterdam_buildings_WO20171215113938039"/>
-      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Buildings20171130235239666"/>
-      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Buffer20171215105158547"/>
-      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:4326" srcDatumTransform="-1" destDatumTransform="-1" layerid="Points_of_Interest20171216160501907"/>
-      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="public20171216161037082"/>
+      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:3857" srcDatumTransform="-1" destDatumTransform="-1" layerid="OpenLayers_plugin_layer20171130183244376"/>
+      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="memory_20171216180044875"/>
       <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="POIs_clipped20171216161344746"/>
+      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="memory_20171216180303867"/>
+      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="public20171216161037082"/>
       <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="street_lights20171130234947174"/>
+      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:4326" srcDatumTransform="-1" destDatumTransform="-1" layerid="Public_Transport_Stops_20171130235446828"/>
+      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Monuments20171130235530244"/>
+      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="memory_20171216180137862"/>
+      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Buildings20171215113620205"/>
+      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Clipped__extent_20171214215232830"/>
+      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Clipped__extent_20171215104100918"/>
+      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:4326" srcDatumTransform="-1" destDatumTransform="-1" layerid="Public_Transport_Stops_20171216155317094"/>
+      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Buildings_clipped20171214215526396"/>
+      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Landcover20171130235556011"/>
+      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Streetlights_clipped20171214220304194"/>
       <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Clipped__extent_20171214215035731"/>
-      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Clipped__extent_20171214220227888"/>
-      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="BSB_WGN_ELEMENTEN_SDO_vlakken_clip20171214191018741"/>
+      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="pois20171216160945720"/>
+      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Buffer20171215105158547"/>
       <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Clipped__extent_20171216161119851"/>
       <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Public_Spaces20171214194538981"/>
-      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="pois20171216160945720"/>
-      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Clipped__extent_20171215104100918"/>
+      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:4326" srcDatumTransform="-1" destDatumTransform="-1" layerid="Points_of_Interest20171216160501907"/>
+      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="BSB_WGN_ELEMENTEN_SDO_vlakken_clip20171214191018741"/>
       <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Clipped__extent_20171215105415094"/>
-      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Roads_Rotterdam20171201095610081"/>
-      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Trees_clipped20171214215526399"/>
-      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:4326" srcDatumTransform="-1" destDatumTransform="-1" layerid="Public_Transport_Stops_20171216155317094"/>
-      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:3857" srcDatumTransform="-1" destDatumTransform="-1" layerid="OpenLayers_plugin_layer20171130183244376"/>
-      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Clipped__extent_20171214215914893"/>
-      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Buildings_clipped20171214215526396"/>
-      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Buildings20171215113620205"/>
-      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Landcover20171130235556011"/>
-      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:4326" srcDatumTransform="-1" destDatumTransform="-1" layerid="Public_Transport_Stops_20171130235446828"/>
-      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Public_stops_clipped20171216161417971"/>
-      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Monuments20171130235530244"/>
-      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Lights_clipped20171216163317551"/>
-      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Clipped__extent_20171214215232830"/>
-      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Trees20171130235335578"/>
-      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:4326" srcDatumTransform="-1" destDatumTransform="-1" layerid="Points_of_Interest20171130235019119"/>
-      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Roads_clipped_buffers20171215105230953"/>
       <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:4326" srcDatumTransform="-1" destDatumTransform="-1" layerid="Points_of_Interest20171216155323275"/>
+      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Lights_clipped20171216163317551"/>
+      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Buildings20171130235239666"/>
+      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Trees20171130235335578"/>
+      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Clipped__extent_20171214220227888"/>
+      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Roads_clipped_buffers20171215105230953"/>
+      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Clipped__extent_20171214215914893"/>
+      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="roads_Rotterdam20171201094416495"/>
+      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Trees_clipped20171214215526399"/>
+      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:4326" srcDatumTransform="-1" destDatumTransform="-1" layerid="Points_of_Interest20171130235019119"/>
       <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Clipped__extent_20171216161205526"/>
-      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:4326" srcDatumTransform="-1" destDatumTransform="-1" layerid="Points_of_Interest20171216155244334"/>
-      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Streetlights_clipped20171214220304194"/>
     </layer_coordinate_transform_info>
   </mapcanvas>
   <layer-tree-canvas>
@@ -130,9 +134,9 @@
         <legendlayerfile isInOverview="0" layerid="Public_stops_clipped20171216161417971" visible="1"/>
       </filegroup>
     </legendlayer>
-    <legendlayer drawingOrder="-1" open="true" checked="Qt::Unchecked" name="Roads_clipped_buffers" showFeatureCount="0">
+    <legendlayer drawingOrder="-1" open="true" checked="Qt::Checked" name="Roads_buffers" showFeatureCount="0">
       <filegroup open="true" hidden="false">
-        <legendlayerfile isInOverview="0" layerid="Roads_clipped_buffers20171215105230953" visible="0"/>
+        <legendlayerfile isInOverview="0" layerid="Roads_clipped_buffers20171215105230953" visible="1"/>
       </filegroup>
     </legendlayer>
     <legendlayer drawingOrder="-1" open="true" checked="Qt::Checked" name="Roads_clipped" showFeatureCount="0">
@@ -541,9 +545,6 @@ def my_form_open(dialog, layer, feature):
         <map-layer-style name=""/>
       </map-layer-style-manager>
       <edittypes>
-        <edittype widgetv2type="TextEdit" name="sid">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
         <edittype widgetv2type="TextEdit" name="wvk_id">
           <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
@@ -554,27 +555,6 @@ def my_form_open(dialog, layer, feature):
           <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="jte_id_end">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="wegbehsrt">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="wegnummer">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="wegdeelltr">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="hecto_lttr">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="rpe_code">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="bst_code">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="admrichtng">
           <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="rijrichtng">
@@ -610,70 +590,7 @@ def my_form_open(dialog, layer, feature):
         <edittype widgetv2type="TextEdit" name="l_hnr_rhts">
           <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
-        <edittype widgetv2type="TextEdit" name="begafstand">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="endafstand">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="beginkm">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="eindkm">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="pos_tv_wol">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="wegbehcode">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="wegbehnaam">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="distrcode">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="distrnaam">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="dienstcode">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="dienstnaam">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="wegtype">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="wgtype_oms">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="routeltr">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="routenr">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="routeltr2">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="routenr2">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="routeltr3">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="routenr3">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="routeltr4">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="routenr4">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="wegnr_aw">
+        <edittype widgetv2type="TextEdit" name="length">
           <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
       </edittypes>
@@ -902,51 +819,22 @@ def my_form_open(dialog, layer, feature):
       <DiagramLayerSettings yPosColumn="-1" showColumn="-1" linePlacementFlags="10" placement="2" dist="0" xPosColumn="-1" priority="0" obstacle="0" zIndex="0" showAll="1"/>
       <annotationform>.</annotationform>
       <aliases>
-        <alias field="sid" index="0" name=""/>
-        <alias field="wvk_id" index="1" name=""/>
-        <alias field="wvk_begdat" index="2" name=""/>
-        <alias field="jte_id_beg" index="3" name=""/>
-        <alias field="jte_id_end" index="4" name=""/>
-        <alias field="wegbehsrt" index="5" name=""/>
-        <alias field="wegnummer" index="6" name=""/>
-        <alias field="wegdeelltr" index="7" name=""/>
-        <alias field="hecto_lttr" index="8" name=""/>
-        <alias field="rpe_code" index="9" name=""/>
-        <alias field="bst_code" index="10" name=""/>
-        <alias field="admrichtng" index="11" name=""/>
-        <alias field="rijrichtng" index="12" name=""/>
-        <alias field="stt_naam" index="13" name=""/>
-        <alias field="wpsnaamnen" index="14" name=""/>
-        <alias field="gme_id" index="15" name=""/>
-        <alias field="gme_naam" index="16" name=""/>
-        <alias field="hnrstrlnks" index="17" name=""/>
-        <alias field="hnrstrrhts" index="18" name=""/>
-        <alias field="e_hnr_lnks" index="19" name=""/>
-        <alias field="e_hnr_rhts" index="20" name=""/>
-        <alias field="l_hnr_lnks" index="21" name=""/>
-        <alias field="l_hnr_rhts" index="22" name=""/>
-        <alias field="begafstand" index="23" name=""/>
-        <alias field="endafstand" index="24" name=""/>
-        <alias field="beginkm" index="25" name=""/>
-        <alias field="eindkm" index="26" name=""/>
-        <alias field="pos_tv_wol" index="27" name=""/>
-        <alias field="wegbehcode" index="28" name=""/>
-        <alias field="wegbehnaam" index="29" name=""/>
-        <alias field="distrcode" index="30" name=""/>
-        <alias field="distrnaam" index="31" name=""/>
-        <alias field="dienstcode" index="32" name=""/>
-        <alias field="dienstnaam" index="33" name=""/>
-        <alias field="wegtype" index="34" name=""/>
-        <alias field="wgtype_oms" index="35" name=""/>
-        <alias field="routeltr" index="36" name=""/>
-        <alias field="routenr" index="37" name=""/>
-        <alias field="routeltr2" index="38" name=""/>
-        <alias field="routenr2" index="39" name=""/>
-        <alias field="routeltr3" index="40" name=""/>
-        <alias field="routenr3" index="41" name=""/>
-        <alias field="routeltr4" index="42" name=""/>
-        <alias field="routenr4" index="43" name=""/>
-        <alias field="wegnr_aw" index="44" name=""/>
+        <alias field="wvk_id" index="0" name=""/>
+        <alias field="wvk_begdat" index="1" name=""/>
+        <alias field="jte_id_beg" index="2" name=""/>
+        <alias field="jte_id_end" index="3" name=""/>
+        <alias field="rijrichtng" index="4" name=""/>
+        <alias field="stt_naam" index="5" name=""/>
+        <alias field="wpsnaamnen" index="6" name=""/>
+        <alias field="gme_id" index="7" name=""/>
+        <alias field="gme_naam" index="8" name=""/>
+        <alias field="hnrstrlnks" index="9" name=""/>
+        <alias field="hnrstrrhts" index="10" name=""/>
+        <alias field="e_hnr_lnks" index="11" name=""/>
+        <alias field="e_hnr_rhts" index="12" name=""/>
+        <alias field="l_hnr_lnks" index="13" name=""/>
+        <alias field="l_hnr_rhts" index="14" name=""/>
+        <alias field="length" index="15" name=""/>
       </aliases>
       <excludeAttributesWMS/>
       <excludeAttributesWFS/>
@@ -1030,18 +918,10 @@ def my_form_open(dialog, layer, feature):
         <fieldstyles/>
       </conditionalstyles>
       <defaults>
-        <default field="sid" expression=""/>
         <default field="wvk_id" expression=""/>
         <default field="wvk_begdat" expression=""/>
         <default field="jte_id_beg" expression=""/>
         <default field="jte_id_end" expression=""/>
-        <default field="wegbehsrt" expression=""/>
-        <default field="wegnummer" expression=""/>
-        <default field="wegdeelltr" expression=""/>
-        <default field="hecto_lttr" expression=""/>
-        <default field="rpe_code" expression=""/>
-        <default field="bst_code" expression=""/>
-        <default field="admrichtng" expression=""/>
         <default field="rijrichtng" expression=""/>
         <default field="stt_naam" expression=""/>
         <default field="wpsnaamnen" expression=""/>
@@ -1053,28 +933,7 @@ def my_form_open(dialog, layer, feature):
         <default field="e_hnr_rhts" expression=""/>
         <default field="l_hnr_lnks" expression=""/>
         <default field="l_hnr_rhts" expression=""/>
-        <default field="begafstand" expression=""/>
-        <default field="endafstand" expression=""/>
-        <default field="beginkm" expression=""/>
-        <default field="eindkm" expression=""/>
-        <default field="pos_tv_wol" expression=""/>
-        <default field="wegbehcode" expression=""/>
-        <default field="wegbehnaam" expression=""/>
-        <default field="distrcode" expression=""/>
-        <default field="distrnaam" expression=""/>
-        <default field="dienstcode" expression=""/>
-        <default field="dienstnaam" expression=""/>
-        <default field="wegtype" expression=""/>
-        <default field="wgtype_oms" expression=""/>
-        <default field="routeltr" expression=""/>
-        <default field="routenr" expression=""/>
-        <default field="routeltr2" expression=""/>
-        <default field="routenr2" expression=""/>
-        <default field="routeltr3" expression=""/>
-        <default field="routenr3" expression=""/>
-        <default field="routeltr4" expression=""/>
-        <default field="routenr4" expression=""/>
-        <default field="wegnr_aw" expression=""/>
+        <default field="length" expression=""/>
       </defaults>
       <previewExpression>COALESCE( "sid", '&lt;NULL>' )</previewExpression>
     </maplayer>
@@ -1565,6 +1424,12 @@ def my_form_open(dialog, layer, feature):
       <previewExpression>COALESCE( "id", '&lt;NULL>' )</previewExpression>
     </maplayer>
     <maplayer simplifyAlgorithm="0" minimumScale="0" maximumScale="1e+08" simplifyDrawingHints="1" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" readOnly="0" geometry="Point" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
+      <extent>
+        <xmin>91513.39999999999417923</xmin>
+        <ymin>434465.53000000002793968</ymin>
+        <xmax>95496.44999999999708962</xmax>
+        <ymax>438008.96999999997206032</ymax>
+      </extent>
       <id>Lights_clipped20171216163317551</id>
       <datasource>./Lights_clipped.shp</datasource>
       <keywordList>
@@ -1662,7 +1527,7 @@ def my_form_open(dialog, layer, feature):
         <multilineenabled fieldname="" on=""/>
         <selectedonly on=""/>
       </labelattributes>
-      <annotationform></annotationform>
+      <annotationform>.</annotationform>
       <aliases>
         <alias field="ID" index="0" name=""/>
         <alias field="OBJECT_TYP" index="1" name=""/>
@@ -1673,13 +1538,13 @@ def my_form_open(dialog, layer, feature):
       <excludeAttributesWMS/>
       <excludeAttributesWFS/>
       <attributeactions default="-1"/>
-      <attributetableconfig actionWidgetStyle="dropDown" sortExpression="" sortOrder="573317703">
+      <attributetableconfig actionWidgetStyle="dropDown" sortExpression="" sortOrder="0">
         <columns/>
       </attributetableconfig>
-      <editform></editform>
+      <editform>.</editform>
       <editforminit/>
       <editforminitcodesource>0</editforminitcodesource>
-      <editforminitfilepath></editforminitfilepath>
+      <editforminitfilepath>.</editforminitfilepath>
       <editforminitcode><![CDATA[]]></editforminitcode>
       <featformsuppress>0</featformsuppress>
       <editorlayout>generatedlayout</editorlayout>
@@ -1727,6 +1592,12 @@ def my_form_open(dialog, layer, feature):
       </customproperties>
     </maplayer>
     <maplayer simplifyAlgorithm="0" minimumScale="0" maximumScale="1e+08" simplifyDrawingHints="1" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" readOnly="0" geometry="Point" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
+      <extent>
+        <xmin>91505.43890245805960149</xmin>
+        <ymin>434474.99723432282917202</ymin>
+        <xmax>95515.00350988656282425</xmax>
+        <ymax>438009.08503252372611314</ymax>
+      </extent>
       <id>POIs_clipped20171216161344746</id>
       <datasource>./POIs_clipped.shp</datasource>
       <keywordList>
@@ -1821,7 +1692,7 @@ def my_form_open(dialog, layer, feature):
         <multilineenabled fieldname="" on=""/>
         <selectedonly on=""/>
       </labelattributes>
-      <annotationform></annotationform>
+      <annotationform>.</annotationform>
       <aliases>
         <alias field="osm_id" index="0" name=""/>
         <alias field="code" index="1" name=""/>
@@ -1840,10 +1711,10 @@ def my_form_open(dialog, layer, feature):
           <column width="-1" hidden="1" type="actions"/>
         </columns>
       </attributetableconfig>
-      <editform></editform>
+      <editform>.</editform>
       <editforminit/>
       <editforminitcodesource>0</editforminitcodesource>
-      <editforminitfilepath></editforminitfilepath>
+      <editforminitfilepath>.</editforminitfilepath>
       <editforminitcode><![CDATA[]]></editforminitcode>
       <featformsuppress>0</featformsuppress>
       <editorlayout>generatedlayout</editorlayout>
@@ -1861,6 +1732,12 @@ def my_form_open(dialog, layer, feature):
       <previewExpression>COALESCE( "name", '&lt;NULL>' )</previewExpression>
     </maplayer>
     <maplayer simplifyAlgorithm="0" minimumScale="0" maximumScale="1e+08" simplifyDrawingHints="1" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" readOnly="0" geometry="Point" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
+      <extent>
+        <xmin>91523.02592991372512188</xmin>
+        <ymin>434470.02251733961747959</ymin>
+        <xmax>95503.02594525521271862</xmax>
+        <ymax>437974.02333663258468732</ymax>
+      </extent>
       <id>Public_stops_clipped20171216161417971</id>
       <datasource>./Public_stops_clipped.shp</datasource>
       <keywordList>
@@ -1955,7 +1832,7 @@ def my_form_open(dialog, layer, feature):
         <multilineenabled fieldname="" on=""/>
         <selectedonly on=""/>
       </labelattributes>
-      <annotationform></annotationform>
+      <annotationform>.</annotationform>
       <aliases>
         <alias field="name" index="0" name=""/>
         <alias field="desc" index="1" name=""/>
@@ -1965,7 +1842,7 @@ def my_form_open(dialog, layer, feature):
       <excludeAttributesWMS/>
       <excludeAttributesWFS/>
       <attributeactions default="-1"/>
-      <attributetableconfig actionWidgetStyle="dropDown" sortExpression="" sortOrder="575099728">
+      <attributetableconfig actionWidgetStyle="dropDown" sortExpression="" sortOrder="0">
         <columns>
           <column width="244" hidden="0" type="field" name="name"/>
           <column width="741" hidden="0" type="field" name="desc"/>
@@ -1974,10 +1851,10 @@ def my_form_open(dialog, layer, feature):
           <column width="-1" hidden="1" type="actions"/>
         </columns>
       </attributetableconfig>
-      <editform></editform>
+      <editform>.</editform>
       <editforminit/>
       <editforminitcodesource>0</editforminitcodesource>
-      <editforminitfilepath></editforminitfilepath>
+      <editforminitfilepath>.</editforminitfilepath>
       <editforminitcode><![CDATA[]]></editforminitcode>
       <featformsuppress>0</featformsuppress>
       <editorlayout>generatedlayout</editorlayout>
@@ -2002,11 +1879,11 @@ def my_form_open(dialog, layer, feature):
         <ymax>438059.81830899999476969</ymax>
       </extent>
       <id>Roads_clipped_buffers20171215105230953</id>
-      <datasource>./Roads_clipped_buffers.shp</datasource>
+      <datasource>./Roads_buffers.shx</datasource>
       <keywordList>
         <value></value>
       </keywordList>
-      <layername>Roads_clipped_buffers</layername>
+      <layername>Roads_buffers</layername>
       <srs>
         <spatialrefsys>
           <proj4>+proj=sterea +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +towgs84=565.2369,50.0087,465.658,-0.406857,0.350733,-1.87035,4.0812 +units=m +no_defs</proj4>
@@ -2027,139 +1904,16 @@ def my_form_open(dialog, layer, feature):
         <map-layer-style name=""/>
       </map-layer-style-manager>
       <edittypes>
-        <edittype widgetv2type="TextEdit" name="sid">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
         <edittype widgetv2type="TextEdit" name="wvk_id">
           <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
-        <edittype widgetv2type="TextEdit" name="wvk_begdat">
+        <edittype widgetv2type="TextEdit" name="nr_benches">
           <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
-        <edittype widgetv2type="TextEdit" name="jte_id_beg">
+        <edittype widgetv2type="TextEdit" name="nr_lights">
           <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
-        <edittype widgetv2type="TextEdit" name="jte_id_end">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="wegbehsrt">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="wegnummer">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="wegdeelltr">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="hecto_lttr">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="rpe_code">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="bst_code">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="admrichtng">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="rijrichtng">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="stt_naam">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="wpsnaamnen">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="gme_id">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="gme_naam">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="hnrstrlnks">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="hnrstrrhts">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="e_hnr_lnks">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="e_hnr_rhts">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="l_hnr_lnks">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="l_hnr_rhts">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="begafstand">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="endafstand">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="beginkm">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="eindkm">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="pos_tv_wol">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="wegbehcode">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="wegbehnaam">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="distrcode">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="distrnaam">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="dienstcode">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="dienstnaam">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="wegtype">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="wgtype_oms">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="routeltr">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="routenr">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="routeltr2">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="routenr2">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="routeltr3">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="routenr3">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="routeltr4">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="routenr4">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="wegnr_aw">
+        <edittype widgetv2type="TextEdit" name="nr_trees">
           <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
       </edittypes>
@@ -2384,51 +2138,10 @@ def my_form_open(dialog, layer, feature):
       <DiagramLayerSettings yPosColumn="-1" showColumn="-1" linePlacementFlags="10" placement="0" dist="0" xPosColumn="-1" priority="0" obstacle="0" zIndex="0" showAll="1"/>
       <annotationform>.</annotationform>
       <aliases>
-        <alias field="sid" index="0" name=""/>
-        <alias field="wvk_id" index="1" name=""/>
-        <alias field="wvk_begdat" index="2" name=""/>
-        <alias field="jte_id_beg" index="3" name=""/>
-        <alias field="jte_id_end" index="4" name=""/>
-        <alias field="wegbehsrt" index="5" name=""/>
-        <alias field="wegnummer" index="6" name=""/>
-        <alias field="wegdeelltr" index="7" name=""/>
-        <alias field="hecto_lttr" index="8" name=""/>
-        <alias field="rpe_code" index="9" name=""/>
-        <alias field="bst_code" index="10" name=""/>
-        <alias field="admrichtng" index="11" name=""/>
-        <alias field="rijrichtng" index="12" name=""/>
-        <alias field="stt_naam" index="13" name=""/>
-        <alias field="wpsnaamnen" index="14" name=""/>
-        <alias field="gme_id" index="15" name=""/>
-        <alias field="gme_naam" index="16" name=""/>
-        <alias field="hnrstrlnks" index="17" name=""/>
-        <alias field="hnrstrrhts" index="18" name=""/>
-        <alias field="e_hnr_lnks" index="19" name=""/>
-        <alias field="e_hnr_rhts" index="20" name=""/>
-        <alias field="l_hnr_lnks" index="21" name=""/>
-        <alias field="l_hnr_rhts" index="22" name=""/>
-        <alias field="begafstand" index="23" name=""/>
-        <alias field="endafstand" index="24" name=""/>
-        <alias field="beginkm" index="25" name=""/>
-        <alias field="eindkm" index="26" name=""/>
-        <alias field="pos_tv_wol" index="27" name=""/>
-        <alias field="wegbehcode" index="28" name=""/>
-        <alias field="wegbehnaam" index="29" name=""/>
-        <alias field="distrcode" index="30" name=""/>
-        <alias field="distrnaam" index="31" name=""/>
-        <alias field="dienstcode" index="32" name=""/>
-        <alias field="dienstnaam" index="33" name=""/>
-        <alias field="wegtype" index="34" name=""/>
-        <alias field="wgtype_oms" index="35" name=""/>
-        <alias field="routeltr" index="36" name=""/>
-        <alias field="routenr" index="37" name=""/>
-        <alias field="routeltr2" index="38" name=""/>
-        <alias field="routenr2" index="39" name=""/>
-        <alias field="routeltr3" index="40" name=""/>
-        <alias field="routenr3" index="41" name=""/>
-        <alias field="routeltr4" index="42" name=""/>
-        <alias field="routenr4" index="43" name=""/>
-        <alias field="wegnr_aw" index="44" name=""/>
+        <alias field="wvk_id" index="0" name=""/>
+        <alias field="nr_benches" index="1" name=""/>
+        <alias field="nr_lights" index="2" name=""/>
+        <alias field="nr_trees" index="3" name=""/>
       </aliases>
       <excludeAttributesWMS/>
       <excludeAttributesWFS/>
@@ -2512,51 +2225,10 @@ def my_form_open(dialog, layer, feature):
         <fieldstyles/>
       </conditionalstyles>
       <defaults>
-        <default field="sid" expression=""/>
         <default field="wvk_id" expression=""/>
-        <default field="wvk_begdat" expression=""/>
-        <default field="jte_id_beg" expression=""/>
-        <default field="jte_id_end" expression=""/>
-        <default field="wegbehsrt" expression=""/>
-        <default field="wegnummer" expression=""/>
-        <default field="wegdeelltr" expression=""/>
-        <default field="hecto_lttr" expression=""/>
-        <default field="rpe_code" expression=""/>
-        <default field="bst_code" expression=""/>
-        <default field="admrichtng" expression=""/>
-        <default field="rijrichtng" expression=""/>
-        <default field="stt_naam" expression=""/>
-        <default field="wpsnaamnen" expression=""/>
-        <default field="gme_id" expression=""/>
-        <default field="gme_naam" expression=""/>
-        <default field="hnrstrlnks" expression=""/>
-        <default field="hnrstrrhts" expression=""/>
-        <default field="e_hnr_lnks" expression=""/>
-        <default field="e_hnr_rhts" expression=""/>
-        <default field="l_hnr_lnks" expression=""/>
-        <default field="l_hnr_rhts" expression=""/>
-        <default field="begafstand" expression=""/>
-        <default field="endafstand" expression=""/>
-        <default field="beginkm" expression=""/>
-        <default field="eindkm" expression=""/>
-        <default field="pos_tv_wol" expression=""/>
-        <default field="wegbehcode" expression=""/>
-        <default field="wegbehnaam" expression=""/>
-        <default field="distrcode" expression=""/>
-        <default field="distrnaam" expression=""/>
-        <default field="dienstcode" expression=""/>
-        <default field="dienstnaam" expression=""/>
-        <default field="wegtype" expression=""/>
-        <default field="wgtype_oms" expression=""/>
-        <default field="routeltr" expression=""/>
-        <default field="routenr" expression=""/>
-        <default field="routeltr2" expression=""/>
-        <default field="routenr2" expression=""/>
-        <default field="routeltr3" expression=""/>
-        <default field="routenr3" expression=""/>
-        <default field="routeltr4" expression=""/>
-        <default field="routenr4" expression=""/>
-        <default field="wegnr_aw" expression=""/>
+        <default field="nr_benches" expression=""/>
+        <default field="nr_lights" expression=""/>
+        <default field="nr_trees" expression=""/>
       </defaults>
       <previewExpression>COALESCE( "sid", '&lt;NULL>' )</previewExpression>
     </maplayer>
@@ -2812,6 +2484,7 @@ def my_form_open(dialog, layer, feature):
       <SingleCategoryDiagramRenderer diagramType="Histogram" sizeLegend="0" attributeLegend="1">
         <DiagramCategory penColor="#000000" labelPlacementMethod="XHeight" penWidth="0" diagramOrientation="Up" sizeScale="0,0,0,0,0,0" minimumSize="0" barWidth="5" penAlpha="255" maxScaleDenominator="1e+08" backgroundColor="#ffffff" transparency="0" width="15" scaleDependency="Area" backgroundAlpha="255" angleOffset="1440" scaleBasedVisibility="0" enabled="0" height="15" lineSizeScale="0,0,0,0,0,0" sizeType="MM" lineSizeType="MM" minScaleDenominator="inf">
           <fontProperties description="MS Shell Dlg 2,7.5,-1,5,50,0,0,0,0,0" style=""/>
+          <attribute field="" color="#000000" label=""/>
         </DiagramCategory>
         <symbol alpha="1" clip_to_extent="1" type="marker" name="sizeSymbol">
           <layer pass="0" class="SimpleMarker" locked="0">
@@ -2956,11 +2629,11 @@ def my_form_open(dialog, layer, feature):
         <value>Buildings_clipped20171214215526396</value>
         <value>Clipped__extent_20171215104100918</value>
         <value>Clipped__extent_20171215105415094</value>
-        <value>Roads_clipped_buffers20171215105230953</value>
-        <value>Trees_clipped20171214215526399</value>
+        <value>Lights_clipped20171216163317551</value>
         <value>POIs_clipped20171216161344746</value>
         <value>Public_stops_clipped20171216161417971</value>
-        <value>Lights_clipped20171216163317551</value>
+        <value>Roads_clipped_buffers20171215105230953</value>
+        <value>Trees_clipped20171214215526399</value>
       </LayerSnappingList>
       <LayerSnappingEnabledList type="QStringList">
         <value>disabled</value>
