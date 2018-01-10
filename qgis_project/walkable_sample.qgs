@@ -1,41 +1,43 @@
 <!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
-<qgis projectname="" version="2.18.15">
+<qgis projectname="" version="2.18.14">
   <title></title>
   <autotransaction active="0"/>
   <evaluateDefaultValues active="0"/>
   <layer-tree-group expanded="1" checked="Qt::PartiallyChecked" name="">
     <customproperties/>
-    <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Unchecked" id="Trees_clipped20171214215526399" source="C:/Users/Heikki/Documents/GitHub/GEO1005_2017_G08/qgis_project/Trees_clipped.shp" name="Trees_clipped">
+    <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Unchecked" id="Trees_clipped20171214215526399" source="C:/Users/Ioanna/Documents/GitHub/GEO1005_2017_G08/qgis_project/Trees_clipped.shp" name="Trees_clipped">
       <customproperties/>
     </layer-tree-layer>
-    <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Unchecked" id="POIs_filtered20171216190252477" source="C:/Users/Heikki/Documents/GitHub/GEO1005_2017_G08/qgis_project/POIs_filtered.shp" name="POIs_filtered">
+    <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Unchecked" id="POIs_filtered20171216190252477" source="C:/Users/Ioanna/Documents/GitHub/GEO1005_2017_G08/qgis_project/POIs_filtered.shp" name="POIs_filtered">
       <customproperties/>
     </layer-tree-layer>
-    <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Unchecked" id="POIs_clipped20171216161344746" source="C:/Users/Heikki/Documents/GitHub/GEO1005_2017_G08/qgis_project/POIs_clipped.shp|layerid=0" name="POIs_clipped">
+    <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Unchecked" id="POIs_clipped20171216161344746" source="C:/Users/Ioanna/Documents/GitHub/GEO1005_2017_G08/qgis_project/POIs_clipped.shp" name="POIs_clipped">
       <customproperties/>
     </layer-tree-layer>
-    <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Unchecked" id="Lights_clipped20171216163317551" source="C:/Users/Heikki/Documents/GitHub/GEO1005_2017_G08/qgis_project/Lights_clipped.shp" name="Lights_clipped">
+    <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Unchecked" id="Lights_clipped20171216163317551" source="C:/Users/Ioanna/Documents/GitHub/GEO1005_2017_G08/qgis_project/Lights_clipped.shp" name="Lights_clipped">
       <customproperties/>
     </layer-tree-layer>
-    <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Unchecked" id="Public_stops_clipped20171216161417971" source="C:/Users/Heikki/Documents/GitHub/GEO1005_2017_G08/qgis_project/Public_stops_clipped.shp" name="Public_stops_clipped">
+    <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Unchecked" id="Public_stops_clipped20171216161417971" source="C:/Users/Ioanna/Documents/GitHub/GEO1005_2017_G08/qgis_project/Public_stops_clipped.shp" name="Public_stops_clipped">
       <customproperties/>
     </layer-tree-layer>
-    <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Checked" id="Roads_per_meter20171216191904263" source="C:/Users/Heikki/Documents/GitHub/GEO1005_2017_G08/qgis_project/Roads_per_meter.shp" name="Roads_per_meter">
+    <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Checked" id="Roads_per_meter20171216191904263" source="C:/Users/Ioanna/Documents/GitHub/GEO1005_2017_G08/qgis_project/Roads_per_meter.shp" name="Roads_per_meter">
+      <customproperties>
+        <property key="showFeatureCount" value="1"/>
+      </customproperties>
+    </layer-tree-layer>
+    <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Unchecked" id="Buffers20171216190903151" source="C:/Users/Ioanna/Documents/GitHub/GEO1005_2017_G08/qgis_project/Buffers.shp" name="Buffers">
       <customproperties/>
     </layer-tree-layer>
-    <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Unchecked" id="Buffers20171216190903151" source="C:/Users/Heikki/Documents/GitHub/GEO1005_2017_G08/qgis_project/Buffers.shp" name="Buffers">
+    <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Unchecked" id="Clipped__extent_20171215104100918" source="C:/Users/Ioanna/Documents/GitHub/GEO1005_2017_G08/qgis_project/Roads_clipped.shp" name="Roads_clipped">
       <customproperties/>
     </layer-tree-layer>
-    <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Unchecked" id="Clipped__extent_20171215104100918" source="C:/Users/Heikki/Documents/GitHub/GEO1005_2017_G08/qgis_project/Roads_clipped.shp" name="Roads_clipped">
+    <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Checked" id="Buildings_clipped20171214215526396" source="C:/Users/Ioanna/Documents/GitHub/GEO1005_2017_G08/qgis_project/Buildings_clipped.shx" name="Buildings_clipped">
       <customproperties/>
     </layer-tree-layer>
-    <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Checked" id="Buildings_clipped20171214215526396" source="C:/Users/Heikki/Documents/GitHub/GEO1005_2017_G08/qgis_project/Buildings_clipped.shx" name="Buildings_clipped">
+    <layer-tree-layer expanded="0" providerKey="ogr" checked="Qt::Unchecked" id="Clipped__extent_20171215105415094" source="C:/Users/Ioanna/Documents/GitHub/GEO1005_2017_G08/qgis_project/Landcover_clipped.shp" name="Landcover_clipped">
       <customproperties/>
     </layer-tree-layer>
-    <layer-tree-layer expanded="0" providerKey="ogr" checked="Qt::Unchecked" id="Clipped__extent_20171215105415094" source="C:/Users/Heikki/Documents/GitHub/GEO1005_2017_G08/qgis_project/Landcover_clipped.shp" name="Landcover_clipped">
-      <customproperties/>
-    </layer-tree-layer>
-    <layer-tree-layer expanded="1" providerKey="" checked="Qt::Unchecked" id="OpenLayers_plugin_layer20171130183244376" source="C:/Users/Heikki/Desktop/Quarter2/SDSS/project data" name="Google Streets">
+    <layer-tree-layer expanded="1" providerKey="" checked="Qt::Unchecked" id="OpenLayers_plugin_layer20171130183244376" source="C:/Users/Ioanna/Desktop/Quarter2/SDSS/project data" name="Google Streets">
       <customproperties/>
     </layer-tree-layer>
   </layer-tree-group>
@@ -43,10 +45,10 @@
   <mapcanvas>
     <units>meters</units>
     <extent>
-      <xmin>91696.95856933243339881</xmin>
-      <ymin>434640.30552790191723034</ymin>
-      <xmax>95061.19689765240764245</xmax>
-      <ymax>438038.2902590396697633</ymax>
+      <xmin>91404.15270844999758992</xmin>
+      <ymin>434372.4616571000078693</ymin>
+      <xmax>95615.39105374999053311</xmax>
+      <ymax>438098.53432490001432598</ymax>
     </extent>
     <rotation>0</rotation>
     <projections>1</projections>
@@ -76,16 +78,16 @@
       <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="BAG_2016_Rotterdam_buildings_WO20171215113938039"/>
       <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="memory_20171216184943047"/>
       <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:3857" srcDatumTransform="-1" destDatumTransform="-1" layerid="OpenLayers_plugin_layer20171130183244376"/>
-      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="memory_20171216180044875"/>
       <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="memory_20171216190614681"/>
+      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="memory_20171216180044875"/>
       <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Joined_layer20171216181050830"/>
       <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="POIs_clipped20171216161344746"/>
       <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="memory_20171216180303867"/>
       <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="public20171216161037082"/>
       <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="street_lights20171130234947174"/>
       <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="POIs_filtered20171216190252477"/>
-      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Roads_per_meter20171216191048681"/>
       <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="memory_20171216191219272"/>
+      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Roads_per_meter20171216191048681"/>
       <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:4326" srcDatumTransform="-1" destDatumTransform="-1" layerid="Public_Transport_Stops_20171130235446828"/>
       <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="memory_20171216180137862"/>
       <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Monuments20171130235530244"/>
@@ -165,7 +167,7 @@
         <legendlayerfile isInOverview="0" layerid="Public_stops_clipped20171216161417971" visible="0"/>
       </filegroup>
     </legendlayer>
-    <legendlayer drawingOrder="-1" open="true" checked="Qt::Checked" name="Roads_per_meter" showFeatureCount="0">
+    <legendlayer drawingOrder="-1" open="true" checked="Qt::Checked" name="Roads_per_meter" showFeatureCount="1">
       <filegroup open="true" hidden="false">
         <legendlayerfile isInOverview="0" layerid="Roads_per_meter20171216191904263" visible="1"/>
       </filegroup>
@@ -433,6 +435,7 @@
       <SingleCategoryDiagramRenderer diagramType="Histogram" sizeLegend="0" attributeLegend="1">
         <DiagramCategory penColor="#000000" labelPlacementMethod="XHeight" penWidth="0" diagramOrientation="Up" sizeScale="0,0,0,0,0,0" minimumSize="0" barWidth="5" penAlpha="255" maxScaleDenominator="1e+08" backgroundColor="#ffffff" transparency="0" width="15" scaleDependency="Area" backgroundAlpha="255" angleOffset="1440" scaleBasedVisibility="0" enabled="0" height="15" lineSizeScale="0,0,0,0,0,0" sizeType="MM" lineSizeType="MM" minScaleDenominator="inf">
           <fontProperties description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" style=""/>
+          <attribute field="" color="#000000" label=""/>
         </DiagramCategory>
         <symbol alpha="1" clip_to_extent="1" type="marker" name="sizeSymbol">
           <layer pass="0" class="SimpleMarker" locked="0">
@@ -458,7 +461,7 @@
         </symbol>
       </SingleCategoryDiagramRenderer>
       <DiagramLayerSettings yPosColumn="-1" showColumn="-1" linePlacementFlags="10" placement="0" dist="0" xPosColumn="-1" priority="0" obstacle="0" zIndex="0" showAll="1"/>
-      <annotationform></annotationform>
+      <annotationform>.</annotationform>
       <aliases>
         <alias field="wvk_id" index="0" name=""/>
         <alias field="nr_benches" index="1" name=""/>
@@ -469,7 +472,7 @@
       <excludeAttributesWMS/>
       <excludeAttributesWFS/>
       <attributeactions default="-1"/>
-      <attributetableconfig actionWidgetStyle="dropDown" sortExpression="" sortOrder="727378648">
+      <attributetableconfig actionWidgetStyle="dropDown" sortExpression="" sortOrder="0">
         <columns>
           <column width="-1" hidden="0" type="field" name="wvk_id"/>
           <column width="-1" hidden="0" type="field" name="nr_benches"/>
@@ -479,10 +482,10 @@
           <column width="-1" hidden="1" type="actions"/>
         </columns>
       </attributetableconfig>
-      <editform></editform>
+      <editform>.</editform>
       <editforminit/>
       <editforminitcodesource>0</editforminitcodesource>
-      <editforminitfilepath></editforminitfilepath>
+      <editforminitfilepath>.</editforminitfilepath>
       <editforminitcode><![CDATA[# -*- coding: utf-8 -*-
 """
 QGIS forms can have a Python function that is called when the form is
@@ -579,12 +582,12 @@ def my_form_open(dialog, layer, feature):
           <symbol alpha="1" clip_to_extent="1" type="fill" name="0">
             <layer pass="0" class="SimpleFill" locked="0">
               <prop k="border_width_map_unit_scale" v="0,0,0,0,0,0"/>
-              <prop k="color" v="120,75,56,255"/>
+              <prop k="color" v="157,157,157,255"/>
               <prop k="joinstyle" v="bevel"/>
               <prop k="offset" v="0,0"/>
               <prop k="offset_map_unit_scale" v="0,0,0,0,0,0"/>
               <prop k="offset_unit" v="MM"/>
-              <prop k="outline_color" v="0,0,0,255"/>
+              <prop k="outline_color" v="0,0,0,0"/>
               <prop k="outline_style" v="solid"/>
               <prop k="outline_width" v="0.26"/>
               <prop k="outline_width_unit" v="MM"/>
@@ -809,19 +812,12 @@ def my_form_open(dialog, layer, feature):
       <attributeactions default="-1"/>
       <attributetableconfig actionWidgetStyle="dropDown" sortExpression="&quot;status&quot;" sortOrder="0">
         <columns>
-          <column width="-1" hidden="0" type="field" name="gid"/>
           <column width="-1" hidden="0" type="field" name="identifica"/>
-          <column width="-1" hidden="0" type="field" name="aanduiding"/>
-          <column width="-1" hidden="0" type="field" name="aanduidi_1"/>
           <column width="251" hidden="0" type="field" name="officieel"/>
-          <column width="-1" hidden="0" type="field" name="inonderzoe"/>
           <column width="196" hidden="0" type="field" name="begindatum"/>
           <column width="-1" hidden="0" type="field" name="einddatum"/>
-          <column width="-1" hidden="0" type="field" name="documentnu"/>
-          <column width="-1" hidden="0" type="field" name="documentda"/>
           <column width="-1" hidden="0" type="field" name="status"/>
           <column width="-1" hidden="0" type="field" name="bouwjaar"/>
-          <column width="-1" hidden="0" type="field" name="geom_valid"/>
           <column width="-1" hidden="0" type="field" name="shape_area"/>
           <column width="-1" hidden="0" type="field" name="shape_peri"/>
           <column width="-1" hidden="1" type="actions"/>
@@ -1959,7 +1955,7 @@ def my_form_open(dialog, layer, feature):
         <ymax>438009.08503252372611314</ymax>
       </extent>
       <id>POIs_clipped20171216161344746</id>
-      <datasource>./POIs_clipped.shp|layerid=0</datasource>
+      <datasource>./POIs_clipped.shp</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -2197,6 +2193,7 @@ def my_form_open(dialog, layer, feature):
       <SingleCategoryDiagramRenderer diagramType="Histogram" sizeLegend="0" attributeLegend="1">
         <DiagramCategory penColor="#000000" labelPlacementMethod="XHeight" penWidth="0" diagramOrientation="Up" sizeScale="0,0,0,0,0,0" minimumSize="0" barWidth="5" penAlpha="255" maxScaleDenominator="1e+08" backgroundColor="#ffffff" transparency="0" width="15" scaleDependency="Area" backgroundAlpha="255" angleOffset="1440" scaleBasedVisibility="0" enabled="0" height="15" lineSizeScale="0,0,0,0,0,0" sizeType="MM" lineSizeType="MM" minScaleDenominator="inf">
           <fontProperties description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" style=""/>
+          <attribute field="" color="#000000" label=""/>
         </DiagramCategory>
         <symbol alpha="1" clip_to_extent="1" type="marker" name="sizeSymbol">
           <layer pass="0" class="SimpleMarker" locked="0">
@@ -2375,7 +2372,7 @@ def my_form_open(dialog, layer, feature):
         <multilineenabled fieldname="" on=""/>
         <selectedonly on=""/>
       </labelattributes>
-      <annotationform></annotationform>
+      <annotationform>.</annotationform>
       <aliases>
         <alias field="osm_id" index="0" name=""/>
         <alias field="code" index="1" name=""/>
@@ -2386,13 +2383,13 @@ def my_form_open(dialog, layer, feature):
       <excludeAttributesWMS/>
       <excludeAttributesWFS/>
       <attributeactions default="-1"/>
-      <attributetableconfig actionWidgetStyle="dropDown" sortExpression="" sortOrder="700066456">
+      <attributetableconfig actionWidgetStyle="dropDown" sortExpression="" sortOrder="0">
         <columns/>
       </attributetableconfig>
-      <editform></editform>
+      <editform>.</editform>
       <editforminit/>
       <editforminitcodesource>0</editforminitcodesource>
-      <editforminitfilepath></editforminitfilepath>
+      <editforminitfilepath>.</editforminitfilepath>
       <editforminitcode><![CDATA[]]></editforminitcode>
       <featformsuppress>0</featformsuppress>
       <editorlayout>generatedlayout</editorlayout>
@@ -2551,6 +2548,12 @@ def my_form_open(dialog, layer, feature):
       <previewExpression>COALESCE( "name", '&lt;NULL>' )</previewExpression>
     </maplayer>
     <maplayer simplifyAlgorithm="0" minimumScale="0" maximumScale="1e+08" simplifyDrawingHints="1" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" readOnly="0" geometry="Line" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
+      <extent>
+        <xmin>91504.42028809999465011</xmin>
+        <ymin>434461.17767300002742559</ymin>
+        <xmax>95515.12347409999347292</xmax>
+        <ymax>438009.81830899999476969</ymax>
+      </extent>
       <id>Roads_per_meter20171216191904263</id>
       <datasource>./Roads_per_meter.shp</datasource>
       <keywordList>
@@ -2652,14 +2655,17 @@ def my_form_open(dialog, layer, feature):
         <edittype widgetv2type="TextEdit" name="pois_pm">
           <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
+        <edittype widgetv2type="TextEdit" name="comf_rate">
+          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
+        </edittype>
       </edittypes>
-      <renderer-v2 attr="trees_pm" forceraster="0" symbollevels="0" type="graduatedSymbol" graduatedMethod="GraduatedColor" enableorderby="0">
+      <renderer-v2 attr="comf_rate" forceraster="0" symbollevels="0" type="graduatedSymbol" graduatedMethod="GraduatedColor" enableorderby="0">
         <ranges>
-          <range render="true" symbol="0" lower="0.000000000000000" upper="0.514000000000000" label=" 0.0000 - 0.5140 "/>
-          <range render="true" symbol="1" lower="0.514000000000000" upper="1.214000000000000" label=" 0.5140 - 1.2140 "/>
-          <range render="true" symbol="2" lower="1.214000000000000" upper="2.786000000000000" label=" 1.2140 - 2.7860 "/>
-          <range render="true" symbol="3" lower="2.786000000000000" upper="9.000000000000000" label=" 2.7860 - 9.0000 "/>
-          <range render="true" symbol="4" lower="9.000000000000000" upper="34.000000000000000" label=" 9.0000 - 34.0000 "/>
+          <range render="true" symbol="0" lower="0.000000000000000" upper="0.087000000000000" label=" 0.000 - 0.087 "/>
+          <range render="true" symbol="1" lower="0.087000000000000" upper="0.131330000000000" label=" 0.087 - 0.131 "/>
+          <range render="true" symbol="2" lower="0.131330000000000" upper="0.183398000000000" label=" 0.131 - 0.183 "/>
+          <range render="true" symbol="3" lower="0.183398000000000" upper="0.284444000000000" label=" 0.183 - 0.284 "/>
+          <range render="true" symbol="4" lower="0.284444000000000" upper="12.333330000000000" label=" 0.284 - 12.333 "/>
         </ranges>
         <symbols>
           <symbol alpha="1" clip_to_extent="1" type="line" name="0">
@@ -2670,7 +2676,7 @@ def my_form_open(dialog, layer, feature):
               <prop k="customdash_unit" v="MM"/>
               <prop k="draw_inside_polygon" v="0"/>
               <prop k="joinstyle" v="bevel"/>
-              <prop k="line_color" v="255,255,204,255"/>
+              <prop k="line_color" v="247,251,255,255"/>
               <prop k="line_style" v="solid"/>
               <prop k="line_width" v="1"/>
               <prop k="line_width_unit" v="MM"/>
@@ -2689,7 +2695,7 @@ def my_form_open(dialog, layer, feature):
               <prop k="customdash_unit" v="MM"/>
               <prop k="draw_inside_polygon" v="0"/>
               <prop k="joinstyle" v="bevel"/>
-              <prop k="line_color" v="194,230,153,255"/>
+              <prop k="line_color" v="200,221,240,255"/>
               <prop k="line_style" v="solid"/>
               <prop k="line_width" v="1"/>
               <prop k="line_width_unit" v="MM"/>
@@ -2708,7 +2714,7 @@ def my_form_open(dialog, layer, feature):
               <prop k="customdash_unit" v="MM"/>
               <prop k="draw_inside_polygon" v="0"/>
               <prop k="joinstyle" v="bevel"/>
-              <prop k="line_color" v="120,198,121,255"/>
+              <prop k="line_color" v="115,179,216,255"/>
               <prop k="line_style" v="solid"/>
               <prop k="line_width" v="1"/>
               <prop k="line_width_unit" v="MM"/>
@@ -2727,7 +2733,7 @@ def my_form_open(dialog, layer, feature):
               <prop k="customdash_unit" v="MM"/>
               <prop k="draw_inside_polygon" v="0"/>
               <prop k="joinstyle" v="bevel"/>
-              <prop k="line_color" v="49,163,84,255"/>
+              <prop k="line_color" v="40,121,185,255"/>
               <prop k="line_style" v="solid"/>
               <prop k="line_width" v="1"/>
               <prop k="line_width_unit" v="MM"/>
@@ -2746,7 +2752,7 @@ def my_form_open(dialog, layer, feature):
               <prop k="customdash_unit" v="MM"/>
               <prop k="draw_inside_polygon" v="0"/>
               <prop k="joinstyle" v="bevel"/>
-              <prop k="line_color" v="0,104,55,255"/>
+              <prop k="line_color" v="8,48,107,255"/>
               <prop k="line_style" v="solid"/>
               <prop k="line_width" v="1"/>
               <prop k="line_width_unit" v="MM"/>
@@ -2780,16 +2786,16 @@ def my_form_open(dialog, layer, feature):
           </symbol>
         </source-symbol>
         <colorramp type="gradient" name="[source]">
-          <prop k="color1" v="255,255,204,255"/>
-          <prop k="color2" v="0,104,55,255"/>
+          <prop k="color1" v="247,251,255,255"/>
+          <prop k="color2" v="8,48,107,255"/>
           <prop k="discrete" v="0"/>
-          <prop k="stops" v="0.25;194,230,153,255:0.5;120,198,121,255:0.75;49,163,84,255"/>
+          <prop k="stops" v="0.13;222,235,247,255:0.26;198,219,239,255:0.39;158,202,225,255:0.52;107,174,214,255:0.65;66,146,198,255:0.78;33,113,181,255:0.9;8,81,156,255"/>
         </colorramp>
         <invertedcolorramp value="0"/>
-        <mode name="jenks"/>
+        <mode name="quantile"/>
         <rotation/>
         <sizescale scalemethod="diameter"/>
-        <labelformat format=" %1 - %2 " trimtrailingzeroes="false" decimalplaces="2"/>
+        <labelformat format=" %1 - %2 " trimtrailingzeroes="false" decimalplaces="3"/>
       </renderer-v2>
       <labeling type="simple"/>
       <customproperties>
@@ -2963,6 +2969,7 @@ def my_form_open(dialog, layer, feature):
       <SingleCategoryDiagramRenderer diagramType="Histogram" sizeLegend="0" attributeLegend="1">
         <DiagramCategory penColor="#000000" labelPlacementMethod="XHeight" penWidth="0" diagramOrientation="Up" sizeScale="0,0,0,0,0,0" minimumSize="0" barWidth="5" penAlpha="255" maxScaleDenominator="1e+08" backgroundColor="#ffffff" transparency="0" width="15" scaleDependency="Area" backgroundAlpha="255" angleOffset="1440" scaleBasedVisibility="0" enabled="0" height="15" lineSizeScale="0,0,0,0,0,0" sizeType="MM" lineSizeType="MM" minScaleDenominator="inf">
           <fontProperties description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" style=""/>
+          <attribute field="" color="#000000" label=""/>
         </DiagramCategory>
         <symbol alpha="1" clip_to_extent="1" type="marker" name="sizeSymbol">
           <layer pass="0" class="SimpleMarker" locked="0">
@@ -2988,7 +2995,7 @@ def my_form_open(dialog, layer, feature):
         </symbol>
       </SingleCategoryDiagramRenderer>
       <DiagramLayerSettings yPosColumn="-1" showColumn="-1" linePlacementFlags="10" placement="2" dist="0" xPosColumn="-1" priority="0" obstacle="0" zIndex="0" showAll="1"/>
-      <annotationform></annotationform>
+      <annotationform>.</annotationform>
       <aliases>
         <alias field="wvk_id" index="0" name=""/>
         <alias field="wvk_begdat" index="1" name=""/>
@@ -3015,11 +3022,12 @@ def my_form_open(dialog, layer, feature):
         <alias field="trees_pm" index="22" name=""/>
         <alias field="nr_pois" index="23" name=""/>
         <alias field="pois_pm" index="24" name=""/>
+        <alias field="comf_rate" index="25" name=""/>
       </aliases>
       <excludeAttributesWMS/>
       <excludeAttributesWFS/>
       <attributeactions default="-1"/>
-      <attributetableconfig actionWidgetStyle="dropDown" sortExpression="" sortOrder="766488368">
+      <attributetableconfig actionWidgetStyle="dropDown" sortExpression="&quot;comf_rate&quot;" sortOrder="0">
         <columns>
           <column width="-1" hidden="0" type="field" name="wvk_id"/>
           <column width="-1" hidden="0" type="field" name="wvk_begdat"/>
@@ -3047,12 +3055,13 @@ def my_form_open(dialog, layer, feature):
           <column width="-1" hidden="0" type="field" name="nr_pois"/>
           <column width="-1" hidden="0" type="field" name="pois_pm"/>
           <column width="-1" hidden="1" type="actions"/>
+          <column width="-1" hidden="0" type="field" name="comf_rate"/>
         </columns>
       </attributetableconfig>
-      <editform></editform>
+      <editform>.</editform>
       <editforminit/>
       <editforminitcodesource>0</editforminitcodesource>
-      <editforminitfilepath></editforminitfilepath>
+      <editforminitfilepath>.</editforminitfilepath>
       <editforminitcode><![CDATA[# -*- coding: utf-8 -*-
 """
 QGIS forms can have a Python function that is called when the form is
@@ -3103,8 +3112,9 @@ def my_form_open(dialog, layer, feature):
         <default field="trees_pm" expression=""/>
         <default field="nr_pois" expression=""/>
         <default field="pois_pm" expression=""/>
+        <default field="comf_rate" expression=""/>
       </defaults>
-      <previewExpression></previewExpression>
+      <previewExpression>COALESCE( "wvk_id", '&lt;NULL>' )</previewExpression>
     </maplayer>
     <maplayer simplifyAlgorithm="0" minimumScale="0" maximumScale="1e+08" simplifyDrawingHints="0" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" readOnly="0" geometry="Point" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
       <extent>
@@ -3500,15 +3510,16 @@ def my_form_open(dialog, layer, feature):
     <Digitizing>
       <DefaultSnapToleranceUnit type="int">2</DefaultSnapToleranceUnit>
       <LayerSnappingList type="QStringList">
+        <value>Buffers20171216190903151</value>
         <value>Buildings_clipped20171214215526396</value>
         <value>Clipped__extent_20171215104100918</value>
         <value>Clipped__extent_20171215105415094</value>
         <value>Lights_clipped20171216163317551</value>
         <value>POIs_clipped20171216161344746</value>
-        <value>Public_stops_clipped20171216161417971</value>
-        <value>Trees_clipped20171214215526399</value>
         <value>POIs_filtered20171216190252477</value>
-        <value>Buffers20171216190903151</value>
+        <value>Public_stops_clipped20171216161417971</value>
+        <value>Roads_per_meter20171216191904263</value>
+        <value>Trees_clipped20171214215526399</value>
       </LayerSnappingList>
       <LayerSnappingEnabledList type="QStringList">
         <value>disabled</value>
@@ -3519,11 +3530,13 @@ def my_form_open(dialog, layer, feature):
         <value>disabled</value>
         <value>disabled</value>
         <value>disabled</value>
-        <value>disabled</value>
+        <value>enabled</value>
+        <value>enabled</value>
       </LayerSnappingEnabledList>
       <SnappingMode type="QString">current_layer</SnappingMode>
       <AvoidIntersectionsList type="QStringList"/>
       <LayerSnappingToleranceUnitList type="QStringList">
+        <value>2</value>
         <value>2</value>
         <value>2</value>
         <value>2</value>
@@ -3543,10 +3556,11 @@ def my_form_open(dialog, layer, feature):
         <value>to_vertex_and_segment</value>
         <value>to_vertex_and_segment</value>
         <value>to_vertex_and_segment</value>
-        <value>to_vertex_and_segment</value>
+        <value>to_vertex</value>
+        <value>to_vertex</value>
       </LayerSnapToList>
-      <DefaultSnapType type="QString">off</DefaultSnapType>
-      <DefaultSnapTolerance type="double">0</DefaultSnapTolerance>
+      <DefaultSnapType type="QString">to vertex</DefaultSnapType>
+      <DefaultSnapTolerance type="double">2</DefaultSnapTolerance>
       <LayerSnappingToleranceList type="QStringList">
         <value>0.000000</value>
         <value>0.000000</value>
@@ -3556,7 +3570,8 @@ def my_form_open(dialog, layer, feature):
         <value>0.000000</value>
         <value>0.000000</value>
         <value>0.000000</value>
-        <value>0.000000</value>
+        <value>2.000000</value>
+        <value>2.000000</value>
       </LayerSnappingToleranceList>
     </Digitizing>
     <Identify>
