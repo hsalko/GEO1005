@@ -72,6 +72,8 @@ class WalkAble:
 
         self.pluginIsActive = False
         self.dockwidget = None
+        
+
 
 
     # noinspection PyMethodMayBeStatic
@@ -221,7 +223,7 @@ class WalkAble:
             #    removed on close (see self.onClosePlugin method)
             if self.dockwidget == None:
                 # Create the dockwidget (after translation) and keep reference
-                self.dockwidget = WalkAbleDockWidget()
+                self.dockwidget = WalkAbleDockWidget(self.iface)
 
             # connect to provide cleanup on closing of dockwidget
             self.dockwidget.closingPlugin.connect(self.onClosePlugin)
@@ -230,4 +232,3 @@ class WalkAble:
             # TODO: fix to allow choice of dock location
             self.iface.addDockWidget(Qt.RightDockWidgetArea, self.dockwidget)
             self.dockwidget.show()
-
