@@ -1,1 +1,5 @@
 user_id;street_id;comfort;utility;comment
+987654321;123456789;7;4;Test
+987654321;123456789;8;5;foobar
+987654321;123456789;;10;sfasgsgdsag
+987654321;123456789;7;3;testtest

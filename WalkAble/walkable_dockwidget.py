@@ -75,6 +75,9 @@ class WalkAbleDockWidget(QtGui.QDockWidget, FORM_CLASS):
         self.button_position.clicked.connect(self.getCurrentPosition)
         self.button_submit.clicked.connect(self.submitFeedback)
         self.button_clear.clicked.connect(self.clearFeedback)
+        
+        #load data
+        self.iface.addProject(os.path.dirname(__file__) + os.path.sep + 'walkable_sample_data.qgs')
 
     def closeEvent(self, event):
         self.closingPlugin.emit()
@@ -84,11 +87,13 @@ class WalkAbleDockWidget(QtGui.QDockWidget, FORM_CLASS):
     
     def getCurrentPosition(self):
     
-        pass
+        print 
     
     def pickFromMap(self):
         
-        pass
+        prev_tool = QgsMapCanvas.mapTool(self.canvas)
+        tool = PointTool(self, prev_tool)
+        self.canvas.setMapTool(tool)
     
     def submitFeedback(self):
     
@@ -105,10 +110,13 @@ class WalkAbleDockWidget(QtGui.QDockWidget, FORM_CLASS):
         
         feedback_comment = str(self.field_comment.toPlainText())
         
-        #with open(db_file, 'a') as f:
-        #    f.write(';'.join([user_id, street_id, feedback_comfort, feedback_utility, feedback_comment]))
-        #    f.write('\n')
-        print ';'.join([user_id, street_id, feedback_comfort, feedback_utility, feedback_comment])
+        with open(os.path.dirname(__file__) + os.path.sep + db_file, 'a') as f:
+            f.write(';'.join([user_id, street_id, feedback_comfort, feedback_utility, feedback_comment]))
+            f.write('\n')
+        
+        self.iface.messageBar().pushMessage("Success", "Feedback submitted, thank you!", level=QgsMessageBar.INFO, duration=5)
+        
+        self.clearFeedback()
     
     def clearFeedback(self):
     
@@ -119,3 +127,52 @@ class WalkAbleDockWidget(QtGui.QDockWidget, FORM_CLASS):
         self.slider_rating_utility.setValue(5)
         
         self.field_comment.clear()
+        
+# based on code form: https://gis.stackexchange.com/questions/45094/how-to-programatically-check-for-a-mouse-click-in-qgis
+class PointTool(QgsMapTool):   
+    def __init__(self, caller, prev_tool):
+        self.caller = caller
+        self.canvas = caller.canvas
+        self.prev_tool = prev_tool
+        QgsMapTool.__init__(self, self.canvas)
+
+    def canvasPressEvent(self, event):
+        pass
+
+    def canvasMoveEvent(self, event):
+        pass
+
+    def canvasReleaseEvent(self, event):
+        
+        point = event.mapPoint()
+        
+        self.caller.iface.messageBar().pushMessage("Clicked", str(point), level=QgsMessageBar.INFO, duration=3)
+        
+        vertex_items = [i for i in self.canvas.scene().items() if issubclass(type(i), QgsVertexMarker)]
+        for ver in vertex_items:
+            if ver in self.canvas.scene().items():
+                self.canvas.scene().removeItem(ver)
+        
+        marker = QgsVertexMarker(self.canvas)
+        marker.setCenter(point)
+        marker.setColor(QtGui.QColor(255,0,0))
+        marker.setIconSize(10)
+        marker.setIconType(QgsVertexMarker.ICON_BOX)
+        marker.setPenWidth(3)
+        
+        self.deactivate()
+
+    def activate(self):
+        pass
+
+    def deactivate(self):
+        self.canvas.setMapTool(self.prev_tool)
+
+    def isZoomTool(self):
+        return False
+
+    def isTransient(self):
+        return True
+
+    def isEditTool(self):
+        return False
