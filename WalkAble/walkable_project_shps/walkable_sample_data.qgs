@@ -3,7 +3,7 @@
   <title></title>
   <autotransaction active="0"/>
   <evaluateDefaultValues active="0"/>
-  <layer-tree-group expanded="1" checked="Qt::PartiallyChecked" name="">
+  <layer-tree-group expanded="1" checked="Qt::Checked" name="">
     <customproperties/>
     <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Checked" id="Trees_clipped20180112172713575" source="C:/Users/Ioanna/Documents/GitHub/GEO1005_2017_G08/WalkAble/walkable_project_shps/Trees_clipped.shx" name="Trees_clipped">
       <customproperties/>
@@ -11,7 +11,7 @@
     <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Checked" id="Lights_clipped20180112153353904" source="C:/Users/Ioanna/Documents/GitHub/GEO1005_2017_G08/WalkAble/walkable_project_shps/Lights_clipped.shx" name="Lights_clipped">
       <customproperties/>
     </layer-tree-layer>
-    <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Checked" id="Buildings_clipped20180112153349622" source="C:/Users/Ioanna/Documents/GitHub/GEO1005_2017_G08/WalkAble/walkable_project_shps/Buildings_clipped.shx" name="Buildings_clipped">
+    <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Checked" id="POIs_clipped20180112153356697" source="C:/Users/Ioanna/Documents/GitHub/GEO1005_2017_G08/WalkAble/walkable_project_shps/POIs_clipped.shx" name="POIs_clipped">
       <customproperties/>
     </layer-tree-layer>
     <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Checked" id="walkable_sample_data20180110140729330" source="C:/Users/Ioanna/Documents/GitHub/GEO1005_2017_G08/WalkAble/walkable_project_shps/walkable_sample_data.shp" name="walkable_sample_data">
@@ -19,10 +19,10 @@
         <property key="showFeatureCount" value="0"/>
       </customproperties>
     </layer-tree-layer>
-    <layer-tree-layer expanded="1" providerKey="" checked="Qt::Unchecked" id="OpenLayers_plugin_layer20180112154447741" source="C:/Users/Ioanna/Documents/GitHub/GEO1005_2017_G08/WalkAble/walkable_project_shps" name="Google Physical">
+    <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Checked" id="Buildings_clipped20180112153349622" source="C:/Users/Ioanna/Documents/GitHub/GEO1005_2017_G08/WalkAble/walkable_project_shps/Buildings_clipped.shx" name="Buildings_clipped">
       <customproperties/>
     </layer-tree-layer>
-    <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Checked" id="POIs_clipped20180112153356697" source="C:/Users/Ioanna/Documents/GitHub/GEO1005_2017_G08/WalkAble/walkable_project_shps/POIs_clipped.shx" name="POIs_clipped">
+    <layer-tree-layer expanded="1" providerKey="" checked="Qt::Checked" id="OpenLayers_plugin_layer20180112154447741" source="C:/Users/Ioanna/Documents/GitHub/GEO1005_2017_G08/WalkAble/walkable_project_shps" name="Google Physical">
       <customproperties/>
     </layer-tree-layer>
   </layer-tree-group>
@@ -30,10 +30,10 @@
   <mapcanvas>
     <units>meters</units>
     <extent>
-      <xmin>495710.67964090069290251</xmin>
-      <ymin>6777421.85198791511356831</ymin>
-      <xmax>509483.67827310075517744</xmax>
-      <ymax>6789675.81919665820896626</ymax>
+      <xmin>498698.10100959904957563</xmin>
+      <ymin>6785204.8831966295838356</ymin>
+      <xmax>499558.91342411166988313</xmax>
+      <ymax>6785970.75614717602729797</ymax>
     </extent>
     <rotation>0</rotation>
     <projections>1</projections>
@@ -84,9 +84,9 @@
         <legendlayerfile isInOverview="0" layerid="Lights_clipped20180112153353904" visible="1"/>
       </filegroup>
     </legendlayer>
-    <legendlayer drawingOrder="-1" open="true" checked="Qt::Checked" name="Buildings_clipped" showFeatureCount="0">
+    <legendlayer drawingOrder="-1" open="true" checked="Qt::Checked" name="POIs_clipped" showFeatureCount="0">
       <filegroup open="true" hidden="false">
-        <legendlayerfile isInOverview="0" layerid="Buildings_clipped20180112153349622" visible="1"/>
+        <legendlayerfile isInOverview="0" layerid="POIs_clipped20180112153356697" visible="1"/>
       </filegroup>
     </legendlayer>
     <legendlayer drawingOrder="-1" open="true" checked="Qt::Checked" name="walkable_sample_data" showFeatureCount="0">
@@ -94,14 +94,14 @@
         <legendlayerfile isInOverview="0" layerid="walkable_sample_data20180110140729330" visible="1"/>
       </filegroup>
     </legendlayer>
-    <legendlayer drawingOrder="-1" open="true" checked="Qt::Unchecked" name="Google Physical" showFeatureCount="0">
+    <legendlayer drawingOrder="-1" open="true" checked="Qt::Checked" name="Buildings_clipped" showFeatureCount="0">
       <filegroup open="true" hidden="false">
-        <legendlayerfile isInOverview="0" layerid="OpenLayers_plugin_layer20180112154447741" visible="0"/>
+        <legendlayerfile isInOverview="0" layerid="Buildings_clipped20180112153349622" visible="1"/>
       </filegroup>
     </legendlayer>
-    <legendlayer drawingOrder="-1" open="true" checked="Qt::Checked" name="POIs_clipped" showFeatureCount="0">
+    <legendlayer drawingOrder="-1" open="true" checked="Qt::Checked" name="Google Physical" showFeatureCount="0">
       <filegroup open="true" hidden="false">
-        <legendlayerfile isInOverview="0" layerid="POIs_clipped20180112153356697" visible="1"/>
+        <legendlayerfile isInOverview="0" layerid="OpenLayers_plugin_layer20180112154447741" visible="1"/>
       </filegroup>
     </legendlayer>
   </legend>
