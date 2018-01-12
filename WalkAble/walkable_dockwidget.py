@@ -85,7 +85,7 @@ class WalkAbleDockWidget(QtGui.QDockWidget, FORM_CLASS):
         self.feedback_street = None
         
         #load data
-        self.iface.addProject(os.path.dirname(__file__) + os.path.sep + 'walkable_sample_data.qgs')
+        self.iface.addProject(os.path.dirname(__file__) + os.path.sep + 'walkable_project_shps' + os.path.sep + 'walkable_sample_data.qgs')
 
     def closeEvent(self, event):
         self.closingPlugin.emit()
