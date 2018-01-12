@@ -29,7 +29,9 @@ from qgis.core import *
 from qgis.gui import *
 from qgis.networkanalysis import *
 
-import processing
+from urllib2 import urlopen
+from urllib import quote_plus
+import json
 
 # Initialize Qt resources from file resources.py
 import resources
@@ -55,6 +57,10 @@ class WalkAbleDockWidget(QtGui.QDockWidget, FORM_CLASS):
         # define globals
         self.iface = iface
         self.canvas = self.iface.mapCanvas()
+        
+        self.tool_pick = QgsMapToolEmitPoint(self.canvas)
+        self.tool_pick.canvasClicked.connect(self.pointPicked)
+        self.prev_tool = QgsMapCanvas.mapTool(self.canvas)
 
         #self.iface.projectRead.connect(self.updateLayers)
         #self.iface.newProjectCreated.connect(self.updateLayers)
@@ -76,6 +82,8 @@ class WalkAbleDockWidget(QtGui.QDockWidget, FORM_CLASS):
         self.button_submit.clicked.connect(self.submitFeedback)
         self.button_clear.clicked.connect(self.clearFeedback)
         
+        self.feedback_street = None
+        
         #load data
         self.iface.addProject(os.path.dirname(__file__) + os.path.sep + 'walkable_sample_data.qgs')
 
@@ -83,24 +91,43 @@ class WalkAbleDockWidget(QtGui.QDockWidget, FORM_CLASS):
         self.closingPlugin.emit()
         event.accept()
 
-    #--------------------------------------------------------------------------
+#--------------------------------------------------------------------------
     
     def getCurrentPosition(self):
     
-        print 
+        self.pointPicked(QgsPoint(91919, 437600)) 
     
     def pickFromMap(self):
         
-        prev_tool = QgsMapCanvas.mapTool(self.canvas)
-        tool = PointTool(self, prev_tool)
-        self.canvas.setMapTool(tool)
+        self.prev_tool = QgsMapCanvas.mapTool(self.canvas)
+        
+        self.canvas.setMapTool(self.tool_pick)
+    
+    def pointPicked(self, point):
+    
+        self.feedback_street = getNearest(point)
+        self.iface.messageBar().pushMessage("Clicked", str(point), level=QgsMessageBar.INFO, duration=3)
+        
+        self.line_street.setText(self.feedback_street['stt_naam'])
+        
+        clearMarkers(self.canvas)
+        
+        marker = QgsVertexMarker(self.canvas)
+        marker.setCenter(point)
+        marker.setColor(QtGui.QColor(255,0,0))
+        marker.setIconSize(10)
+        marker.setIconType(QgsVertexMarker.ICON_BOX)
+        marker.setPenWidth(3)
+        
+        self.canvas.setMapTool(self.prev_tool)
     
     def submitFeedback(self):
     
         db_file = 'feedback.csv'
         
         user_id = '987654321'
-        street_id = '123456789'
+        
+        street_id = str(self.feedback_street['wvk_id'])[:9]
         
         feedback_comfort, feedback_utility = '', ''
         if self.check_comfort.isChecked():
@@ -119,7 +146,12 @@ class WalkAbleDockWidget(QtGui.QDockWidget, FORM_CLASS):
         self.clearFeedback()
     
     def clearFeedback(self):
-    
+        
+        clearMarkers(self.canvas)
+        
+        self.feedback_street = None
+        self.line_street.clear()
+        
         self.check_comfort.setChecked(False)
         self.check_utility.setChecked(False)
         
@@ -127,7 +159,80 @@ class WalkAbleDockWidget(QtGui.QDockWidget, FORM_CLASS):
         self.slider_rating_utility.setValue(5)
         
         self.field_comment.clear()
+
+#--------------------------------------------------------------------------
+
+def clearMarkers(canvas):
+        vertex_items = [i for i in canvas.scene().items() if issubclass(type(i), QgsVertexMarker)]
+        for ver in vertex_items:
+            if ver in canvas.scene().items():
+                canvas.scene().removeItem(ver)
         
+def getNearest(point):
+    
+    layer = None
+    for lyr in QgsMapLayerRegistry.instance().mapLayers().values():
+        if lyr.name() == "walkable_sample_data":
+            layer = lyr
+            break
+    
+    spi = QgsSpatialIndex()
+    ftr = QgsFeature()
+    fit = layer.dataProvider().getFeatures()
+    while fit.nextFeature(ftr):
+        spi.insertFeature(ftr)
+    
+    nearest_id = spi.nearestNeighbor(point, 1)[0]
+    
+    # https://gis.stackexchange.com/a/118651
+    nnfeature = layer.getFeatures(QgsFeatureRequest(nearest_id)).next()
+    # Get the distance to this feature (it is not necessarily the nearest one)
+    print nnfeature.geometry().closestVertex(point)
+    mindistance = point.distance(nnfeature.geometry().closestVertex(point)[0])
+    px = point.x()
+    py = point.y()
+    # Get all the features that may be closer to the point than nnfeature
+    closefeatureids = spi.intersects(QgsRectangle(px - mindistance, py - mindistance, px + mindistance, py + mindistance))
+    for closefeatureid in closefeatureids:
+        closefeature = layer.getFeatures(QgsFeatureRequest(closefeatureid)).next()
+        thisdistance = point.distance(closefeature.geometry().closestVertex(point)[0])
+        if thisdistance < mindistance:
+            mindistance = thisdistance
+            nnfeature = closefeature
+            if mindistance == 0:
+                 break
+    
+    return nnfeature
+
+def getCoords(address):
+        
+        url = "http://nominatim.openstreetmap.org/search?format=jsonv2&q="
+        try:
+            req = urlopen(url + quote_plus(place))
+            lst = json.loads(req.read().decode('utf-8'))
+            loc = map(float, [lst[0]['lat'], lst[0]['lon']])
+        except:
+            # when something goes wrong, e.g. timeout: return empty tuple
+            return ()
+        # otherwise, return the found WGS'84 coordinate
+        return tuple(loc)
+
+"""       
+    def getAddress(point):
+        
+        url = "http://nominatim.openstreetmap.org/reverse?format=jsonv2&"
+        query = 'lat={}&lon={}'.format(lat, lon) # ___FIX_THIS___
+        try:
+            req = urlopen(url + query)
+            lst = json.loads(req.read().decode('utf-8'))
+            stn = lst['address']['road']
+            
+        except:
+            # when something goes wrong, e.g. timeout: return empty tuple
+            return ()
+        # otherwise, return the found WGS'84 coordinate
+        return tuple(loc)
+     
 # based on code form: https://gis.stackexchange.com/questions/45094/how-to-programatically-check-for-a-mouse-click-in-qgis
 class PointTool(QgsMapTool):   
     def __init__(self, caller, prev_tool):
@@ -143,29 +248,14 @@ class PointTool(QgsMapTool):
         pass
 
     def canvasReleaseEvent(self, event):
-        
         point = event.mapPoint()
-        
-        self.caller.iface.messageBar().pushMessage("Clicked", str(point), level=QgsMessageBar.INFO, duration=3)
-        
-        vertex_items = [i for i in self.canvas.scene().items() if issubclass(type(i), QgsVertexMarker)]
-        for ver in vertex_items:
-            if ver in self.canvas.scene().items():
-                self.canvas.scene().removeItem(ver)
-        
-        marker = QgsVertexMarker(self.canvas)
-        marker.setCenter(point)
-        marker.setColor(QtGui.QColor(255,0,0))
-        marker.setIconSize(10)
-        marker.setIconType(QgsVertexMarker.ICON_BOX)
-        marker.setPenWidth(3)
-        
         self.deactivate()
 
     def activate(self):
         pass
 
     def deactivate(self):
+        ### emit point
         self.canvas.setMapTool(self.prev_tool)
 
     def isZoomTool(self):
@@ -176,3 +266,4 @@ class PointTool(QgsMapTool):
 
     def isEditTool(self):
         return False
+"""
