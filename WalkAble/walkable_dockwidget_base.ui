@@ -90,7 +90,7 @@
          <rect>
           <x>10</x>
           <y>50</y>
-          <width>271</width>
+          <width>251</width>
           <height>22</height>
          </rect>
         </property>
@@ -141,7 +141,7 @@
          <rect>
           <x>10</x>
           <y>100</y>
-          <width>271</width>
+          <width>251</width>
           <height>22</height>
          </rect>
         </property>
@@ -179,7 +179,7 @@
          <rect>
           <x>10</x>
           <y>150</y>
-          <width>271</width>
+          <width>251</width>
           <height>22</height>
          </rect>
         </property>
@@ -228,7 +228,7 @@
          </font>
         </property>
         <property name="text">
-         <string>Set Weights for Map</string>
+         <string>Set Your Preferences</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="line_route_from">
@@ -329,6 +329,72 @@
          <string>Find Optimal Route</string>
         </property>
        </widget>
+       <widget class="QLabel" name="label_weight_directness">
+        <property name="geometry">
+         <rect>
+          <x>260</x>
+          <y>50</y>
+          <width>20</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>5</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_weight_comfort">
+        <property name="geometry">
+         <rect>
+          <x>260</x>
+          <y>100</y>
+          <width>20</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>5</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_weight_utility">
+        <property name="geometry">
+         <rect>
+          <x>260</x>
+          <y>150</y>
+          <width>20</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>5</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
       </widget>
       <widget class="QWidget" name="tab_comment">
        <attribute name="title">
@@ -391,7 +457,7 @@
          <rect>
           <x>10</x>
           <y>140</y>
-          <width>271</width>
+          <width>251</width>
           <height>22</height>
          </rect>
         </property>
@@ -401,14 +467,26 @@
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
+        <property name="minimum">
+         <number>1</number>
+        </property>
         <property name="maximum">
-         <number>10</number>
+         <number>5</number>
+        </property>
+        <property name="value">
+         <number>3</number>
         </property>
         <property name="sliderPosition">
-         <number>5</number>
+         <number>3</number>
         </property>
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="invertedAppearance">
+         <bool>false</bool>
+        </property>
+        <property name="invertedControls">
+         <bool>false</bool>
         </property>
        </widget>
        <widget class="QSlider" name="slider_rating_utility">
@@ -416,7 +494,7 @@
          <rect>
           <x>10</x>
           <y>190</y>
-          <width>271</width>
+          <width>251</width>
           <height>22</height>
          </rect>
         </property>
@@ -426,11 +504,17 @@
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
+        <property name="minimum">
+         <number>1</number>
+        </property>
         <property name="maximum">
-         <number>10</number>
+         <number>5</number>
+        </property>
+        <property name="value">
+         <number>3</number>
         </property>
         <property name="sliderPosition">
-         <number>5</number>
+         <number>3</number>
         </property>
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
@@ -528,6 +612,50 @@
         </property>
         <property name="text">
          <string>Clear</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_rating_comfort">
+        <property name="geometry">
+         <rect>
+          <x>260</x>
+          <y>140</y>
+          <width>20</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>3</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_rating_utility">
+        <property name="geometry">
+         <rect>
+          <x>260</x>
+          <y>190</y>
+          <width>20</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>3</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
       </widget>

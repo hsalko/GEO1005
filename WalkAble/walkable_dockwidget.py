@@ -62,16 +62,11 @@ class WalkAbleDockWidget(QtGui.QDockWidget, FORM_CLASS):
         self.tool_pick.canvasClicked.connect(self.pointPicked)
         self.prev_tool = QgsMapCanvas.mapTool(self.canvas)
 
-        #self.iface.projectRead.connect(self.updateLayers)
-        #self.iface.newProjectCreated.connect(self.updateLayers)
-        #self.iface.legendInterface().itemRemoved.connect(self.updateLayers)
-        #self.iface.legendInterface().itemAdded.connect(self.updateLayers)
-
         # login button
         #self.button_login.clicked.connect(self.)
 
         # change map tab
-        #self.button_update.clicked.connect(self.)
+        self.button_update.clicked.connect(self.updateMap)
         #self.button_route_find.clicked.connect(self.)
         #self.button_route_from.clicked.connect(self.)
         #self.button_route_to.clicked.connect(self.)
@@ -84,14 +79,54 @@ class WalkAbleDockWidget(QtGui.QDockWidget, FORM_CLASS):
         
         self.feedback_street = None
         
+        # sliders
+        self.slider_directness.valueChanged.connect(lambda:self.label_weight_directness.setText(str(self.slider_directness.value())))
+        self.slider_comfort.valueChanged.connect(lambda:self.label_weight_comfort.setText(str(self.slider_comfort.value())))
+        self.slider_utility.valueChanged.connect(lambda:self.label_weight_utility.setText(str(self.slider_utility.value())))
+        self.slider_rating_comfort.valueChanged.connect(lambda:self.label_rating_comfort.setText(str(self.slider_rating_comfort.value())))
+        self.slider_rating_utility.valueChanged.connect(lambda:self.label_rating_utility.setText(str(self.slider_rating_utility.value())))
+        
         #load data
-        self.iface.addProject(os.path.dirname(__file__) + os.path.sep + 'walkable_project_shps' + os.path.sep + 'walkable_sample_data.qgs')
+        self.iface.addProject(os.path.dirname(__file__) + os.path.sep + 'walkable_sample_data' + os.path.sep + 'walkable_sample_data.qgs')
+        
+        self.street_layer = None
+        for lyr in QgsMapLayerRegistry.instance().mapLayers().values():
+            if "Streets.shp" in lyr.source():
+                self.street_layer = lyr
+                break
+        
+        self.updateMap()
 
     def closeEvent(self, event):
         self.closingPlugin.emit()
         event.accept()
 
 #--------------------------------------------------------------------------
+    
+    def updateMap(self):
+    
+        layer = self.street_layer
+    
+        wgt_d = self.slider_directness.value()
+        wgt_c = self.slider_comfort.value()
+        wgt_u = self.slider_utility.value()
+        
+        scaling = 15. / (wgt_d + wgt_c + wgt_u)
+        
+        idx_d = layer.fieldNameIndex('directness')
+        idx_c = layer.fieldNameIndex('comfort')
+        idx_u = layer.fieldNameIndex('utility')
+        idx_w = layer.fieldNameIndex('weighted')
+        
+        layer.startEditing()
+        for segment in layer.getFeatures():
+            attrs = segment.attributes()
+            try:
+                weitd = scaling * (attrs[idx_d] * wgt_d + attrs[idx_c] * wgt_c + attrs[idx_u] * wgt_u)
+                layer.changeAttributeValue(segment.id(), idx_w, weitd)
+            except:
+                pass
+        layer.commitChanges()
     
     def getCurrentPosition(self):
     
@@ -105,8 +140,7 @@ class WalkAbleDockWidget(QtGui.QDockWidget, FORM_CLASS):
     
     def pointPicked(self, point):
     
-        self.feedback_street = getNearest(point)
-        self.iface.messageBar().pushMessage("Clicked", str(point), level=QgsMessageBar.INFO, duration=3)
+        self.feedback_street = getNearest(self.street_layer, point)
         
         self.line_street.setText(self.feedback_street['stt_naam'])
         
@@ -155,8 +189,8 @@ class WalkAbleDockWidget(QtGui.QDockWidget, FORM_CLASS):
         self.check_comfort.setChecked(False)
         self.check_utility.setChecked(False)
         
-        self.slider_rating_comfort.setValue(5)
-        self.slider_rating_utility.setValue(5)
+        self.slider_rating_comfort.setValue(3)
+        self.slider_rating_utility.setValue(3)
         
         self.field_comment.clear()
 
@@ -168,19 +202,9 @@ def clearMarkers(canvas):
             if ver in canvas.scene().items():
                 canvas.scene().removeItem(ver)
         
-def getNearest(point):
+def getNearest(layer, point):
     
-    layer = None
-    for lyr in QgsMapLayerRegistry.instance().mapLayers().values():
-        if lyr.name() == "walkable_sample_data":
-            layer = lyr
-            break
-    
-    spi = QgsSpatialIndex()
-    ftr = QgsFeature()
-    fit = layer.dataProvider().getFeatures()
-    while fit.nextFeature(ftr):
-        spi.insertFeature(ftr)
+    spi = QgsSpatialIndex(layer.getFeatures())
     
     nearest_id = spi.nearestNeighbor(point, 1)[0]
     

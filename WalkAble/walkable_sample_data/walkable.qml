@@ -31,14 +31,17 @@
     <edittype widgetv2type="TextEdit" name="weighted">
       <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
     </edittype>
+    <edittype widgetv2type="TextEdit" name="score">
+      <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
+    </edittype>
   </edittypes>
   <renderer-v2 attr="weighted" forceraster="0" symbollevels="0" type="graduatedSymbol" graduatedMethod="GraduatedColor" enableorderby="0">
     <ranges>
-      <range render="true" symbol="0" lower="0.171000000000000" upper="0.500000000000000" label="Low walkability"/>
+      <range render="true" symbol="0" lower="0.000000000000000" upper="0.500000000000000" label="Low walkability"/>
       <range render="true" symbol="1" lower="0.500000000000000" upper="1.000000000000000" label=""/>
       <range render="true" symbol="2" lower="1.000000000000000" upper="1.500000000000000" label=""/>
       <range render="true" symbol="3" lower="1.500000000000000" upper="2.000000000000000" label=""/>
-      <range render="true" symbol="4" lower="2.000000000000000" upper="62.166620000000002" label="High walkability"/>
+      <range render="true" symbol="4" lower="2.000000000000000" upper="999.000000000000000" label="High walkability"/>
     </ranges>
     <symbols>
       <symbol alpha="1" clip_to_extent="1" type="line" name="0">
@@ -342,6 +345,7 @@
   <SingleCategoryDiagramRenderer diagramType="Histogram" sizeLegend="0" attributeLegend="1">
     <DiagramCategory penColor="#000000" labelPlacementMethod="XHeight" penWidth="0" diagramOrientation="Up" sizeScale="0,0,0,0,0,0" minimumSize="0" barWidth="5" penAlpha="255" maxScaleDenominator="1e+08" backgroundColor="#ffffff" transparency="0" width="15" scaleDependency="Area" backgroundAlpha="255" angleOffset="1440" scaleBasedVisibility="0" enabled="0" height="15" lineSizeScale="0,0,0,0,0,0" sizeType="MM" lineSizeType="MM" minScaleDenominator="inf">
       <fontProperties description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" style=""/>
+      <attribute field="" color="#000000" label=""/>
     </DiagramCategory>
     <symbol alpha="1" clip_to_extent="1" type="marker" name="sizeSymbol">
       <layer pass="0" class="SimpleMarker" locked="0">
@@ -367,7 +371,7 @@
     </symbol>
   </SingleCategoryDiagramRenderer>
   <DiagramLayerSettings yPosColumn="-1" showColumn="-1" linePlacementFlags="10" placement="2" dist="0" xPosColumn="-1" priority="0" obstacle="0" zIndex="0" showAll="1"/>
-  <annotationform></annotationform>
+  <annotationform>.</annotationform>
   <aliases>
     <alias field="wvk_id" index="0" name=""/>
     <alias field="wvk_begdat" index="1" name=""/>
@@ -379,6 +383,7 @@
     <alias field="utility" index="7" name=""/>
     <alias field="directness" index="8" name=""/>
     <alias field="weighted" index="9" name=""/>
+    <alias field="score" index="10" name=""/>
   </aliases>
   <excludeAttributesWMS/>
   <excludeAttributesWFS/>
@@ -396,12 +401,13 @@
       <column width="-1" hidden="0" type="field" name="utility"/>
       <column width="-1" hidden="1" type="actions"/>
       <column width="-1" hidden="0" type="field" name="weighted"/>
+      <column width="-1" hidden="0" type="field" name="score"/>
     </columns>
   </attributetableconfig>
-  <editform></editform>
+  <editform>.</editform>
   <editforminit/>
   <editforminitcodesource>0</editforminitcodesource>
-  <editforminitfilepath></editforminitfilepath>
+  <editforminitfilepath>.</editforminitfilepath>
   <editforminitcode><![CDATA[# -*- coding: utf-8 -*-
 """
 QGIS forms can have a Python function that is called when the form is
@@ -437,6 +443,7 @@ def my_form_open(dialog, layer, feature):
     <default field="utility" expression=""/>
     <default field="directness" expression=""/>
     <default field="weighted" expression=""/>
+    <default field="score" expression=""/>
   </defaults>
   <previewExpression>COALESCE( "wvk_id", '&lt;NULL>' )</previewExpression>
   <layerGeometryType>1</layerGeometryType>
