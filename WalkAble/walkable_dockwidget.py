@@ -61,13 +61,15 @@ class WalkAbleDockWidget(QtGui.QDockWidget, FORM_CLASS):
         self.tool_pick = QgsMapToolEmitPoint(self.canvas)
         self.tool_pick.canvasClicked.connect(self.pointPicked)
         self.prev_tool = QgsMapCanvas.mapTool(self.canvas)
+        
+        self.feedback_street = None
 
         # login button
         #self.button_login.clicked.connect(self.)
 
         # change map tab
         self.button_update.clicked.connect(self.updateMap)
-        #self.button_route_find.clicked.connect(self.)
+        self.button_route_find.clicked.connect(self.findRoute)
         #self.button_route_from.clicked.connect(self.)
         #self.button_route_to.clicked.connect(self.)
 
@@ -77,7 +79,7 @@ class WalkAbleDockWidget(QtGui.QDockWidget, FORM_CLASS):
         self.button_submit.clicked.connect(self.submitFeedback)
         self.button_clear.clicked.connect(self.clearFeedback)
         
-        self.feedback_street = None
+        
         
         # sliders
         self.slider_directness.valueChanged.connect(lambda:self.label_weight_directness.setText(str(self.slider_directness.value())))
@@ -127,6 +129,57 @@ class WalkAbleDockWidget(QtGui.QDockWidget, FORM_CLASS):
             except:
                 pass
         layer.commitChanges()
+ 
+
+ 
+    
+    def findRoute(self):
+    
+        network_layer = self.street_layer
+        
+        # get the points to be used as origin and destination
+        from_to_pts = [QgsPoint(x,y) for (x,y) in [(91919, 437600), (94680, 435270)]]
+        
+        # build the graph including these points
+        director = QgsLineVectorLayerDirector(network_layer, -1, '', '', '', 3)
+        properter = WeightedLengthProperter() # length/rating as cost
+        director.addProperter(properter)
+        builder = QgsGraphBuilder(network_layer.crs())
+        tied_points = director.makeGraph(builder, from_to_pts)
+        graph = builder.graph()
+    
+        # calculate the shortest path for the given origin and destination
+        
+        points = []
+        
+        if graph:
+            
+            from_point = tied_points[0]
+            to_point = tied_points[1]
+            
+            from_id = graph.findVertex(from_point)
+            to_id = graph.findVertex(to_point)
+
+            (tree, cost) = QgsGraphAnalyzer.dijkstra(graph, from_id, 0)
+
+            if tree[to_id] == -1:
+                pass
+            else:
+                curPos = to_id
+                while curPos != from_id:
+                    points.append(graph.vertex(graph.arc(tree[curPos]).inVertex()).point())
+                    curPos = graph.arc(tree[curPos]).outVertex()
+                points.append(from_point)
+                points.reverse()
+            
+                rb = QgsRubberBand(self.canvas)
+                rb.setColor(QtGui.QColor(255,0,0))
+                rb.setWidth(3)
+
+                for pnt in points:
+                    rb.addPoint(pnt)
+        
+    
     
     def getCurrentPosition(self):
     
@@ -135,7 +188,6 @@ class WalkAbleDockWidget(QtGui.QDockWidget, FORM_CLASS):
     def pickFromMap(self):
         
         self.prev_tool = QgsMapCanvas.mapTool(self.canvas)
-        
         self.canvas.setMapTool(self.tool_pick)
     
     def pointPicked(self, point):
@@ -197,7 +249,8 @@ class WalkAbleDockWidget(QtGui.QDockWidget, FORM_CLASS):
 #--------------------------------------------------------------------------
 
 def clearMarkers(canvas):
-        vertex_items = [i for i in canvas.scene().items() if issubclass(type(i), QgsVertexMarker)]
+        
+        vertex_items = [i for i in canvas.scene().items() if issubclass(type(i), (QgsVertexMarker, QgsRubberBand))]
         for ver in vertex_items:
             if ver in canvas.scene().items():
                 canvas.scene().removeItem(ver)
@@ -215,7 +268,7 @@ def getNearest(layer, point):
     mindistance = point.distance(nnfeature.geometry().closestVertex(point)[0])
     px = point.x()
     py = point.y()
-    # Get all the features that may be closer to the point than nnfeature
+    # Get all the features that may be closer to the point than nnfeature and compare
     closefeatureids = spi.intersects(QgsRectangle(px - mindistance, py - mindistance, px + mindistance, py + mindistance))
     for closefeatureid in closefeatureids:
         closefeature = layer.getFeatures(QgsFeatureRequest(closefeatureid)).next()
@@ -230,17 +283,60 @@ def getNearest(layer, point):
 
 def getCoords(address):
         
-        url = "http://nominatim.openstreetmap.org/search?format=jsonv2&q="
-        try:
-            req = urlopen(url + quote_plus(place))
-            lst = json.loads(req.read().decode('utf-8'))
-            loc = map(float, [lst[0]['lat'], lst[0]['lon']])
-        except:
-            # when something goes wrong, e.g. timeout: return empty tuple
-            return ()
-        # otherwise, return the found WGS'84 coordinate
-        return tuple(loc)
+    url = "http://nominatim.openstreetmap.org/search?format=jsonv2&q="
+    try:
+        req = urlopen(url + quote_plus(address))
+        lst = json.loads(req.read().decode('utf-8'))
+        loc = map(float, [lst[0]['lat'], lst[0]['lon']])
+    except:
+        # when something goes wrong, e.g. timeout: return empty tuple
+        return ()
+    # otherwise, return the found WGS'84 coordinate
+    return tuple(loc)
 
+class WeightedLengthProperter(QgsArcProperter):
+    def __init__(self):
+        QgsArcProperter.__init__(self)
+        self.weighted_index = 9
+
+    def property(self, distance, feature):
+        try:
+            cost = distance / float(feature.attributes()[self.weighted_index])
+            return cost
+        except:
+            return distance
+
+    def requiredAttributes(self):
+        return [self.weighted_index]
+
+"""        
+        # store the route results in temporary layer called "Routes"
+        routes_layer = uf.getLegendLayerByName(self.iface, "Routes")
+        # create one if it doesn't exist
+        if not routes_layer:
+            attribs = ['id']
+            types = [QtCore.QVariant.String]
+            routes_layer = uf.createTempLayer('Routes','LINESTRING',self.network_layer.crs().postgisSrid(), attribs, types)
+            uf.loadTempLayer(routes_layer)
+        
+        # insert route line
+        for route in routes_layer.getFeatures():
+            print route.id()
+        uf.insertTempFeatures(routes_layer, [points], [['testing',100.00]])
+        buffer = processing.runandload('qgis:fixeddistancebuffer',routes_layer,10.0,5,False,None)
+        #self.refreshCanvas(routes_layer)
+
+    def deleteRoutes(self):
+        routes_layer = uf.getLegendLayerByName(self.iface, "Routes")
+        if routes_layer:
+            ids = uf.getAllFeatureIds(routes_layer)
+            routes_layer.startEditing()
+            for id in ids:
+                routes_layer.deleteFeature(id)
+            routes_layer.commitChanges()
+    
+    
+"""         
 """       
     def getAddress(point):
         
