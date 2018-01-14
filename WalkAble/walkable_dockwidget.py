@@ -70,8 +70,8 @@ class WalkAbleDockWidget(QtGui.QDockWidget, FORM_CLASS):
         self.from_marker = QgsVertexMarker(self.canvas)
         self.to_marker = QgsVertexMarker(self.canvas)
 
-        # login button
-        #self.button_login.clicked.connect(self.)
+        # my profile tab
+        self.button_skip.clicked.connect(self.skipLogin)
 
         # view map tab
         self.slider_directness.sliderReleased.connect(self.updateMap)
@@ -100,14 +100,14 @@ class WalkAbleDockWidget(QtGui.QDockWidget, FORM_CLASS):
         self.slider_rating_comfort.valueChanged.connect(lambda:self.label_rating_comfort.setText(str(self.slider_rating_comfort.value())))
         self.slider_rating_utility.valueChanged.connect(lambda:self.label_rating_utility.setText(str(self.slider_rating_utility.value())))
         
+        # disable tabs at startup
+        
+        for i in [1,2,3]:
+            self.tab_container.setTabEnabled(i, False)
+        
         # clear scene and load data
         
-        for rb in [i for i in self.canvas.scene().items() if issubclass(type(i), QgsRubberBand)]:
-            if rb in self.canvas.scene().items():
-                self.canvas.scene().removeItem(rb)
-        for vm in [i for i in self.canvas.scene().items() if issubclass(type(i), QgsVertexMarker)]:
-            if vm in self.canvas.scene().items():
-                self.canvas.scene().removeItem(vm)
+        clearScene(self.canvas)
         
         self.iface.addProject(os.path.dirname(__file__) + os.path.sep + 'walkable_sample_data' + os.path.sep + 'walkable_sample_data.qgs')
         
@@ -117,13 +117,23 @@ class WalkAbleDockWidget(QtGui.QDockWidget, FORM_CLASS):
                 self.street_layer = lyr
                 break
         
-        self.updateMap()
+        self.canvas.setExtent(self.street_layer.extent().buffer(100))
+        self.canvas.refresh()
 
     def closeEvent(self, event):
+        clearScene(self.canvas)
         self.closingPlugin.emit()
         event.accept()
 
     #--------------------------------------------------------------------------
+    
+    # my profile tab
+    
+    def skipLogin(self):
+        
+        self.tab_container.setCurrentWidget(self.tab_view)
+        for i in [1,2,3]:
+            self.tab_container.setTabEnabled(i, True)
     
     # view map tab
     
@@ -164,9 +174,9 @@ class WalkAbleDockWidget(QtGui.QDockWidget, FORM_CLASS):
         self.slider_comfort.setValue(5)
         self.slider_utility.setValue(5)
         
-        self.updateMap()       
- 
-    
+        self.canvas.setExtent(self.street_layer.extent().buffer(100))
+        self.updateMap()
+        
     # navigate tab
     
     def fromPick(self):
@@ -351,7 +361,16 @@ def clearRoutes(canvas):
     for rb in rb_items:
         if rb in canvas.scene().items():
             canvas.scene().removeItem(rb)
-        
+
+def clearScene(canvas):
+    
+        for rb in [i for i in canvas.scene().items() if issubclass(type(i), QgsRubberBand)]:
+            if rb in canvas.scene().items():
+                canvas.scene().removeItem(rb)
+        for vm in [i for i in canvas.scene().items() if issubclass(type(i), QgsVertexMarker)]:
+            if vm in canvas.scene().items():
+                canvas.scene().removeItem(vm)
+            
 def getNearest(layer, point):
     
     spi = QgsSpatialIndex(layer.getFeatures())
