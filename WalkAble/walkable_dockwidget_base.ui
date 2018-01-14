@@ -31,45 +31,6 @@
   <widget class="QWidget" name="dockWidgetContents">
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
-     <widget class="QWidget" name="widget" native="true">
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>24</height>
-       </size>
-      </property>
-      <widget class="QLabel" name="label_login">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>0</y>
-         <width>191</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>User: login or set details</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="button_login">
-       <property name="geometry">
-        <rect>
-         <x>210</x>
-         <y>0</y>
-         <width>75</width>
-         <height>23</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Login</string>
-       </property>
-      </widget>
-      <zorder>label_login</zorder>
-      <zorder>button_login</zorder>
-      <zorder>tabWidget</zorder>
-     </widget>
-    </item>
-    <item row="1" column="0">
      <widget class="QTabWidget" name="tabWidget">
       <property name="tabPosition">
        <enum>QTabWidget::North</enum>
@@ -78,8 +39,26 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
+      <widget class="QWidget" name="tab_profile">
+       <attribute name="title">
+        <string>My Profile</string>
+       </attribute>
+       <widget class="QPushButton" name="button_skip">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>261</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Skip</string>
+        </property>
+       </widget>
+      </widget>
       <widget class="QWidget" name="tab_view">
        <attribute name="title">
         <string>View Map</string>

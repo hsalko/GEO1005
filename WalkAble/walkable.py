@@ -27,6 +27,8 @@ import resources
 
 # Import the code for the DockWidget
 from walkable_dockwidget import WalkAbleDockWidget
+#from walkable_login_dialog import WalkAbleLoginDialog
+
 import os.path
 
 
@@ -215,7 +217,6 @@ class WalkAble:
 
         if not self.pluginIsActive:
             self.pluginIsActive = True
-
             #print "** STARTING WalkAble"
 
             # dockwidget may not exist if:
@@ -232,3 +233,8 @@ class WalkAble:
             # TODO: fix to allow choice of dock location
             self.iface.addDockWidget(Qt.RightDockWidgetArea, self.dockwidget)
             self.dockwidget.show()
+"""
+            self.dockwidget = WalkAbleDockWidget(self.iface)
+            self.dialog = WalkAbleLoginDialog(self.iface, self.dockwidget)
+            self.dialog.show()
+"""
