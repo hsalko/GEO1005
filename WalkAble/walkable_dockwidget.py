@@ -57,7 +57,7 @@ class WalkAbleDockWidget(QtGui.QDockWidget, FORM_CLASS):
         self.iface = iface
         self.canvas = self.iface.mapCanvas()
         
-        self.tool_pick = QgsMapToolEmitPoint(self.canvas)
+        self.tool_pick = PickPointTool(self.canvas)
         self.tool_pick.canvasClicked.connect(self.pointPicked)
         self.prev_tool = QgsMapCanvas.mapTool(self.canvas)
         self.pick_target = ''
@@ -393,7 +393,7 @@ def getCoords(address, layer):
     
     return point
     
-
+# based on code provided by @jorgegil
 class WeightedDistanceProperter(QgsArcProperter):
     def __init__(self):
         QgsArcProperter.__init__(self)
@@ -410,39 +410,15 @@ class WeightedDistanceProperter(QgsArcProperter):
         return [self.weighted_index]
 
 
-# based on code form: https://gis.stackexchange.com/a/45105
-class PickPointTool(QgsMapTool):
-    def __init__(self, caller, prev_tool):
-        self.caller = caller
-        self.canvas = caller.canvas
-        self.prev_tool = prev_tool
-        QgsMapTool.__init__(self, self.canvas)
-
+# based on code from https://stackoverflow.com/a/19985550
+class PickPointTool(QgsMapToolEmitPoint):
+    
     def canvasPressEvent(self, event):
         pass
-
-    def canvasMoveEvent(self, event):
-        pass
-
+    
     def canvasReleaseEvent(self, event):
-        point = event.mapPoint()
-        self.deactivate()
-
-    def activate(self):
-        pass
-
-    def deactivate(self):
-        ### emit point
-        self.canvas.setMapTool(self.prev_tool)
-
-    def isZoomTool(self):
-        return False
-
-    def isTransient(self):
-        return True
-
-    def isEditTool(self):
-        return False
+        self.canvasClicked.emit(event.mapPoint(), event.button())
+        super(PickPointTool, self).canvasReleaseEvent(event)
 
 """        
         # store the route results in temporary layer called "Routes"
