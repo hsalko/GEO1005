@@ -29,8 +29,7 @@ from qgis.core import *
 from qgis.gui import *
 from qgis.networkanalysis import *
 
-from urllib2 import urlopen
-from urllib import quote_plus
+from urllib import urlopen, quote_plus
 import json
 
 # Initialize Qt resources from file resources.py
@@ -64,8 +63,12 @@ class WalkAbleDockWidget(QtGui.QDockWidget, FORM_CLASS):
         self.pick_target = ''
         
         self.feedback_id = ''
-        self.from_pt = QgsPoint(1,2)
-        self.to_pt = QgsPoint(3,4)
+        self.from_pt = QgsPoint()
+        self.to_pt = QgsPoint()
+        
+        self.feedback_marker = QgsVertexMarker(self.canvas)
+        self.from_marker = QgsVertexMarker(self.canvas)
+        self.to_marker = QgsVertexMarker(self.canvas)
 
         # login button
         #self.button_login.clicked.connect(self.)
@@ -97,7 +100,15 @@ class WalkAbleDockWidget(QtGui.QDockWidget, FORM_CLASS):
         self.slider_rating_comfort.valueChanged.connect(lambda:self.label_rating_comfort.setText(str(self.slider_rating_comfort.value())))
         self.slider_rating_utility.valueChanged.connect(lambda:self.label_rating_utility.setText(str(self.slider_rating_utility.value())))
         
-        #load data
+        # clear scene and load data
+        
+        for rb in [i for i in self.canvas.scene().items() if issubclass(type(i), QgsRubberBand)]:
+            if rb in self.canvas.scene().items():
+                self.canvas.scene().removeItem(rb)
+        for vm in [i for i in self.canvas.scene().items() if issubclass(type(i), QgsVertexMarker)]:
+            if vm in self.canvas.scene().items():
+                self.canvas.scene().removeItem(vm)
+        
         self.iface.addProject(os.path.dirname(__file__) + os.path.sep + 'walkable_sample_data' + os.path.sep + 'walkable_sample_data.qgs')
         
         self.street_layer = None
@@ -183,10 +194,12 @@ class WalkAbleDockWidget(QtGui.QDockWidget, FORM_CLASS):
     
     def findRoute(self):
     
+        clearRoutes(self.canvas)
+        
         network_layer = self.street_layer
         
         # get the points to be used as origin and destination
-        from_to_pts = [self.from_pt, self.to_pt] #[QgsPoint(x,y) for (x,y) in [(91919, 437600), (94680, 435270)]]
+        from_to_pts = [self.from_pt, self.to_pt]
         print from_to_pts
         
         # build the graph including these points
@@ -227,14 +240,15 @@ class WalkAbleDockWidget(QtGui.QDockWidget, FORM_CLASS):
 
                 for p in points:
                     rb.addPoint(p)
+                
+                self.canvas.setExtent(rb.asGeometry().boundingBox().buffer(100))
+                self.canvas.refresh()
         
     def resetRoute(self):
         
-        clearMarkers(self.canvas)
-        rb_items = [i for i in self.canvas.scene().items() if issubclass(type(i), QgsRubberBand)]
-        for rb in rb_items:
-            if rb in self.canvas.scene().items():
-                self.canvas.scene().removeItem(rb)
+        clearMarker(self.canvas, self.from_marker)
+        clearMarker(self.canvas, self.to_marker)
+        clearRoutes(self.canvas)
         
         self.line_route_from.clear()
         self.line_route_to.clear()
@@ -270,8 +284,7 @@ class WalkAbleDockWidget(QtGui.QDockWidget, FORM_CLASS):
         feedback_comment = str(self.field_comment.toPlainText())
         
         with open(os.path.dirname(__file__) + os.path.sep + db_file, 'a') as f:
-            f.write(';'.join([user_id, street_id, feedback_comfort, feedback_utility, feedback_comment]))
-            f.write('\n')
+            f.write(';'.join([user_id, street_id, feedback_comfort, feedback_utility, feedback_comment])+'\n')
         
         self.iface.messageBar().pushMessage("Success", "Feedback submitted, thank you!", level=QgsMessageBar.INFO, duration=5)
         
@@ -279,7 +292,7 @@ class WalkAbleDockWidget(QtGui.QDockWidget, FORM_CLASS):
     
     def clearFeedback(self):
         
-        clearMarkers(self.canvas)
+        clearMarker(self.canvas, self.feedback_marker)
         
         self.feedback_street = None
         self.line_street.clear()
@@ -295,47 +308,49 @@ class WalkAbleDockWidget(QtGui.QDockWidget, FORM_CLASS):
     
     def pointPicked(self, cpoint):
     
-        point = QgsPoint(cpoint.x(), cpoint.y())
-        street = getNearest(self.street_layer, point)
-        
-        if self.pick_target == 'comment':
-            field = self.line_street
-            color = QtGui.QColor(255,0,0)
-            self.feedback_id = str(street['wvk_id'])
-        elif self.pick_target == 'from':
-            field = self.line_route_from
-            color = QtGui.QColor(0,0,255)
-            self.from_pt = point
-        elif self.pick_target == 'to':
-            field = self.line_route_to
-            color = QtGui.QColor(0,255,0)
-            self.to_pt = point
-        
-        field.setText(street['stt_naam'])
-        
-        clearMarkers(self.canvas)
-        
-        addMarker(self.canvas, point, color)
+        if cpoint:
+            point = QgsPoint(cpoint.x(), cpoint.y())
+            street = getNearest(self.street_layer, point)
+            
+            if self.pick_target == 'comment':
+                field = self.line_street
+                addMarker(self.canvas, self.feedback_marker, point, QtGui.QColor(255,0,0))
+                self.feedback_id = str(street['wvk_id'])
+            elif self.pick_target == 'from':
+                field = self.line_route_from
+                addMarker(self.canvas, self.from_marker, point, QtGui.QColor(0,0,255))
+                self.from_pt = point
+            elif self.pick_target == 'to':
+                field = self.line_route_to
+                addMarker(self.canvas, self.to_marker, point, QtGui.QColor(0,255,0))
+                self.to_pt = point
+            
+            field.setText(street['stt_naam'])
         
         self.canvas.setMapTool(self.prev_tool)
 
 #--------------------------------------------------------------------------
 
-def addMarker(canvas, point, color):
+def addMarker(canvas, marker, point, color):
     
-    marker = QgsVertexMarker(canvas)
+    canvas.scene().addItem(marker)
     marker.setCenter(point)
     marker.setColor(color)
     marker.setIconSize(10)
     marker.setIconType(QgsVertexMarker.ICON_BOX)
     marker.setPenWidth(3)
 
-def clearMarkers(canvas):
-        
-    vertex_items = [i for i in canvas.scene().items() if issubclass(type(i), QgsVertexMarker)]
-    for ver in vertex_items:
-        if ver in canvas.scene().items():
-            canvas.scene().removeItem(ver)
+def clearMarker(canvas, marker):
+    
+    if marker in canvas.scene().items():
+        canvas.scene().removeItem(marker)
+    
+def clearRoutes(canvas):
+
+    rb_items = [i for i in canvas.scene().items() if issubclass(type(i), QgsRubberBand)]
+    for rb in rb_items:
+        if rb in canvas.scene().items():
+            canvas.scene().removeItem(rb)
         
 def getNearest(layer, point):
     
@@ -394,35 +409,9 @@ class WeightedDistanceProperter(QgsArcProperter):
     def requiredAttributes(self):
         return [self.weighted_index]
 
-"""        
-        # store the route results in temporary layer called "Routes"
-        routes_layer = uf.getLegendLayerByName(self.iface, "Routes")
-        # create one if it doesn't exist
-        if not routes_layer:
-            attribs = ['id']
-            types = [QtCore.QVariant.String]
-            routes_layer = uf.createTempLayer('Routes','LINESTRING',self.network_layer.crs().postgisSrid(), attribs, types)
-            uf.loadTempLayer(routes_layer)
-        
-        # insert route line
-        for route in routes_layer.getFeatures():
-            print route.id()
-        uf.insertTempFeatures(routes_layer, [points], [['testing',100.00]])
-        buffer = processing.runandload('qgis:fixeddistancebuffer',routes_layer,10.0,5,False,None)
-        #self.refreshCanvas(routes_layer)
 
-    def deleteRoutes(self):
-        routes_layer = uf.getLegendLayerByName(self.iface, "Routes")
-        if routes_layer:
-            ids = uf.getAllFeatureIds(routes_layer)
-            routes_layer.startEditing()
-            for id in ids:
-                routes_layer.deleteFeature(id)
-            routes_layer.commitChanges()
-    
-
-# based on code form: https://gis.stackexchange.com/questions/45094/how-to-programatically-check-for-a-mouse-click-in-qgis
-class PointTool(QgsMapTool):   
+# based on code form: https://gis.stackexchange.com/a/45105
+class PickPointTool(QgsMapTool):
     def __init__(self, caller, prev_tool):
         self.caller = caller
         self.canvas = caller.canvas
@@ -454,4 +443,33 @@ class PointTool(QgsMapTool):
 
     def isEditTool(self):
         return False
+
+"""        
+        # store the route results in temporary layer called "Routes"
+        routes_layer = uf.getLegendLayerByName(self.iface, "Routes")
+        # create one if it doesn't exist
+        if not routes_layer:
+            attribs = ['id']
+            types = [QtCore.QVariant.String]
+            routes_layer = uf.createTempLayer('Routes','LINESTRING',self.network_layer.crs().postgisSrid(), attribs, types)
+            uf.loadTempLayer(routes_layer)
+        
+        # insert route line
+        for route in routes_layer.getFeatures():
+            print route.id()
+        uf.insertTempFeatures(routes_layer, [points], [['testing',100.00]])
+        buffer = processing.runandload('qgis:fixeddistancebuffer',routes_layer,10.0,5,False,None)
+        #self.refreshCanvas(routes_layer)
+
+    def deleteRoutes(self):
+        routes_layer = uf.getLegendLayerByName(self.iface, "Routes")
+        if routes_layer:
+            ids = uf.getAllFeatureIds(routes_layer)
+            routes_layer.startEditing()
+            for id in ids:
+                routes_layer.deleteFeature(id)
+            routes_layer.commitChanges()
+    
+
+
 """
