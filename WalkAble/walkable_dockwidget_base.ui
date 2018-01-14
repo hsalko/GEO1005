@@ -67,7 +67,6 @@
       <zorder>label_login</zorder>
       <zorder>button_login</zorder>
       <zorder>tabWidget</zorder>
-      <zorder>tabWidget</zorder>
      </widget>
     </item>
     <item row="1" column="0">
@@ -79,11 +78,11 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
-      <widget class="QWidget" name="tab_weights">
+      <widget class="QWidget" name="tab_view">
        <attribute name="title">
-        <string>Change the Map</string>
+        <string>View Map</string>
        </attribute>
        <widget class="QSlider" name="slider_directness">
         <property name="geometry">
@@ -91,7 +90,7 @@
           <x>10</x>
           <y>50</y>
           <width>251</width>
-          <height>22</height>
+          <height>25</height>
          </rect>
         </property>
         <property name="sizePolicy">
@@ -108,6 +107,12 @@
         </property>
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="tickPosition">
+         <enum>QSlider::TicksBelow</enum>
+        </property>
+        <property name="tickInterval">
+         <number>1</number>
         </property>
        </widget>
        <widget class="QLabel" name="label_directness">
@@ -142,7 +147,7 @@
           <x>10</x>
           <y>100</y>
           <width>251</width>
-          <height>22</height>
+          <height>25</height>
          </rect>
         </property>
         <property name="sizePolicy">
@@ -159,6 +164,12 @@
         </property>
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="tickPosition">
+         <enum>QSlider::TicksBelow</enum>
+        </property>
+        <property name="tickInterval">
+         <number>1</number>
         </property>
        </widget>
        <widget class="QLabel" name="label_utility">
@@ -180,7 +191,7 @@
           <x>10</x>
           <y>150</y>
           <width>251</width>
-          <height>22</height>
+          <height>25</height>
          </rect>
         </property>
         <property name="sizePolicy">
@@ -198,18 +209,11 @@
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
-       </widget>
-       <widget class="QPushButton" name="button_update">
-        <property name="geometry">
-         <rect>
-          <x>80</x>
-          <y>190</y>
-          <width>131</width>
-          <height>23</height>
-         </rect>
+        <property name="tickPosition">
+         <enum>QSlider::TicksBelow</enum>
         </property>
-        <property name="text">
-         <string>Update Map</string>
+        <property name="tickInterval">
+         <number>1</number>
         </property>
        </widget>
        <widget class="QLabel" name="label_weights">
@@ -228,105 +232,7 @@
          </font>
         </property>
         <property name="text">
-         <string>Set Your Preferences</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="line_route_from">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>270</y>
-          <width>221</width>
-          <height>20</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_route_from">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>250</y>
-          <width>46</width>
-          <height>13</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>From</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_route_to">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>300</y>
-          <width>46</width>
-          <height>13</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>To</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="line_route_to">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>320</y>
-          <width>221</width>
-          <height>20</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="button_route_find">
-        <property name="geometry">
-         <rect>
-          <x>80</x>
-          <y>360</y>
-          <width>131</width>
-          <height>23</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Find Route</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="button_route_from">
-        <property name="geometry">
-         <rect>
-          <x>240</x>
-          <y>270</y>
-          <width>41</width>
-          <height>23</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Pick</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="button_route_to">
-        <property name="geometry">
-         <rect>
-          <x>240</x>
-          <y>320</y>
-          <width>41</width>
-          <height>23</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Pick</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_route">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>230</y>
-          <width>221</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Find Optimal Route</string>
+         <string>Set your preferences</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_weight_directness">
@@ -395,10 +301,178 @@
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
+       <widget class="QPushButton" name="button_reset_map">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>190</y>
+          <width>131</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Reset</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_navigate">
+       <attribute name="title">
+        <string>Navigate</string>
+       </attribute>
+       <widget class="QLineEdit" name="line_route_to">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>130</y>
+          <width>211</width>
+          <height>20</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_route_to">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>110</y>
+          <width>46</width>
+          <height>13</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>To</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_route_from">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>30</y>
+          <width>46</width>
+          <height>13</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>From</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="button_find_route">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>200</y>
+          <width>131</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Find Route</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_route">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>221</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Find optimal route with current preferences</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="line_route_from">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>50</y>
+          <width>211</width>
+          <height>20</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="button_reset_route">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>230</y>
+          <width>131</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Reset</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="button_from_pick">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>80</y>
+          <width>131</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Pick from Map</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="button_from_address">
+        <property name="geometry">
+         <rect>
+          <x>230</x>
+          <y>50</y>
+          <width>51</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Locate</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="button_to_pick">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>160</y>
+          <width>131</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Pick from Map</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="button_to_address">
+        <property name="geometry">
+         <rect>
+          <x>230</x>
+          <y>130</y>
+          <width>51</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Locate</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="button_from_position">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>80</y>
+          <width>131</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Current Position</string>
+        </property>
+       </widget>
       </widget>
       <widget class="QWidget" name="tab_comment">
        <attribute name="title">
-        <string>Leave Feedback</string>
+        <string>Comment</string>
        </attribute>
        <widget class="QPlainTextEdit" name="field_comment">
         <property name="geometry">

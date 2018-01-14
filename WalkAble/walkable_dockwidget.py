@@ -61,30 +61,39 @@ class WalkAbleDockWidget(QtGui.QDockWidget, FORM_CLASS):
         self.tool_pick = QgsMapToolEmitPoint(self.canvas)
         self.tool_pick.canvasClicked.connect(self.pointPicked)
         self.prev_tool = QgsMapCanvas.mapTool(self.canvas)
+        self.pick_target = ''
         
-        self.feedback_street = None
+        self.feedback_id = ''
+        self.from_pt = QgsPoint(1,2)
+        self.to_pt = QgsPoint(3,4)
 
         # login button
         #self.button_login.clicked.connect(self.)
 
-        # change map tab
-        self.button_update.clicked.connect(self.updateMap)
-        self.button_route_find.clicked.connect(self.findRoute)
-        #self.button_route_from.clicked.connect(self.)
-        #self.button_route_to.clicked.connect(self.)
+        # view map tab
+        self.slider_directness.sliderReleased.connect(self.updateMap)
+        self.slider_comfort.sliderReleased.connect(self.updateMap)
+        self.slider_utility.sliderReleased.connect(self.updateMap)
+        self.slider_directness.valueChanged.connect(lambda:self.label_weight_directness.setText(str(self.slider_directness.value())))
+        self.slider_comfort.valueChanged.connect(lambda:self.label_weight_comfort.setText(str(self.slider_comfort.value())))
+        self.slider_utility.valueChanged.connect(lambda:self.label_weight_utility.setText(str(self.slider_utility.value())))
+        self.button_reset_map.clicked.connect(self.resetMap)
 
-        # leave feedback tab
+        # navigate tab
+        self.button_from_address.clicked.connect(self.fromAddress)
+        self.button_from_pick.clicked.connect(self.fromPick)
+        self.button_from_position.clicked.connect(self.fromPosition)
+        self.button_to_address.clicked.connect(self.toAddress)
+        self.button_to_pick.clicked.connect(self.toPick)
+        self.button_find_route.clicked.connect(self.findRoute)
+        self.button_reset_route.clicked.connect(self.resetRoute)
+        
+        # comment tab
         self.button_frommap.clicked.connect(self.pickFromMap)
         self.button_position.clicked.connect(self.getCurrentPosition)
         self.button_submit.clicked.connect(self.submitFeedback)
         self.button_clear.clicked.connect(self.clearFeedback)
         
-        
-        
-        # sliders
-        self.slider_directness.valueChanged.connect(lambda:self.label_weight_directness.setText(str(self.slider_directness.value())))
-        self.slider_comfort.valueChanged.connect(lambda:self.label_weight_comfort.setText(str(self.slider_comfort.value())))
-        self.slider_utility.valueChanged.connect(lambda:self.label_weight_utility.setText(str(self.slider_utility.value())))
         self.slider_rating_comfort.valueChanged.connect(lambda:self.label_rating_comfort.setText(str(self.slider_rating_comfort.value())))
         self.slider_rating_utility.valueChanged.connect(lambda:self.label_rating_utility.setText(str(self.slider_rating_utility.value())))
         
@@ -103,7 +112,9 @@ class WalkAbleDockWidget(QtGui.QDockWidget, FORM_CLASS):
         self.closingPlugin.emit()
         event.accept()
 
-#--------------------------------------------------------------------------
+    #--------------------------------------------------------------------------
+    
+    # view map tab
     
     def updateMap(self):
     
@@ -113,36 +124,74 @@ class WalkAbleDockWidget(QtGui.QDockWidget, FORM_CLASS):
         wgt_c = self.slider_comfort.value()
         wgt_u = self.slider_utility.value()
         
-        scaling = 15. / (wgt_d + wgt_c + wgt_u)
-        
-        idx_d = layer.fieldNameIndex('directness')
-        idx_c = layer.fieldNameIndex('comfort')
-        idx_u = layer.fieldNameIndex('utility')
-        idx_w = layer.fieldNameIndex('weighted')
-        
-        layer.startEditing()
-        for segment in layer.getFeatures():
-            attrs = segment.attributes()
-            try:
-                weitd = scaling * (attrs[idx_d] * wgt_d + attrs[idx_c] * wgt_c + attrs[idx_u] * wgt_u)
-                layer.changeAttributeValue(segment.id(), idx_w, weitd)
-            except:
-                pass
-        layer.commitChanges()
+        if wgt_d + wgt_c + wgt_u == 0:
+            self.slider_directness.setValue(1)
+            self.updateMap()
+            
+        else:
+            
+            scaling = 15. / (wgt_d + wgt_c + wgt_u)
+            
+            idx_d = layer.fieldNameIndex('directness')
+            idx_c = layer.fieldNameIndex('comfort')
+            idx_u = layer.fieldNameIndex('utility')
+            idx_w = layer.fieldNameIndex('weighted')
+            
+            layer.startEditing()
+            for segment in layer.getFeatures():
+                attrs = segment.attributes()
+                try:
+                    weitd = scaling * (attrs[idx_d] * wgt_d + attrs[idx_c] * wgt_c + attrs[idx_u] * wgt_u)
+                    layer.changeAttributeValue(segment.id(), idx_w, weitd)
+                except:
+                    pass
+            layer.commitChanges()
  
-
+    def resetMap(self):
+        
+        self.slider_directness.setValue(5)
+        self.slider_comfort.setValue(5)
+        self.slider_utility.setValue(5)
+        
+        self.updateMap()       
  
+    
+    # navigate tab
+    
+    def fromPick(self):
+        self.pick_target = 'from'
+        self.prev_tool = QgsMapCanvas.mapTool(self.canvas)
+        self.canvas.setMapTool(self.tool_pick)
+    
+    def fromAddress(self):
+        print str(self.line_route_from.text)
+        self.pick_target = 'from'
+        self.pointPicked(getCoords(str(self.line_route_from.text()), self.street_layer))
+    
+    def fromPosition(self):
+        self.pick_target = 'from'
+        self.pointPicked(QgsPoint(91919, 437600)) 
+    
+    def toPick(self):
+        self.pick_target = 'to'
+        self.prev_tool = QgsMapCanvas.mapTool(self.canvas)
+        self.canvas.setMapTool(self.tool_pick)
+    
+    def toAddress(self, point):
+        self.pick_target = 'to'
+        self.pointPicked(getCoords(str(self.line_route_to.text()), self.street_layer))    
     
     def findRoute(self):
     
         network_layer = self.street_layer
         
         # get the points to be used as origin and destination
-        from_to_pts = [QgsPoint(x,y) for (x,y) in [(91919, 437600), (94680, 435270)]]
+        from_to_pts = [self.from_pt, self.to_pt] #[QgsPoint(x,y) for (x,y) in [(91919, 437600), (94680, 435270)]]
+        print from_to_pts
         
         # build the graph including these points
         director = QgsLineVectorLayerDirector(network_layer, -1, '', '', '', 3)
-        properter = WeightedLengthProperter() # length/rating as cost
+        properter = WeightedDistanceProperter() # length/rating as cost
         director.addProperter(properter)
         builder = QgsGraphBuilder(network_layer.crs())
         tied_points = director.makeGraph(builder, from_to_pts)
@@ -176,36 +225,33 @@ class WalkAbleDockWidget(QtGui.QDockWidget, FORM_CLASS):
                 rb.setColor(QtGui.QColor(255,0,0))
                 rb.setWidth(3)
 
-                for pnt in points:
-                    rb.addPoint(pnt)
+                for p in points:
+                    rb.addPoint(p)
         
+    def resetRoute(self):
+        
+        clearMarkers(self.canvas)
+        rb_items = [i for i in self.canvas.scene().items() if issubclass(type(i), QgsRubberBand)]
+        for rb in rb_items:
+            if rb in self.canvas.scene().items():
+                self.canvas.scene().removeItem(rb)
+        
+        self.line_route_from.clear()
+        self.line_route_to.clear()
     
+    
+    # comment tab
     
     def getCurrentPosition(self):
     
+        self.pick_target = 'comment'
         self.pointPicked(QgsPoint(91919, 437600)) 
     
     def pickFromMap(self):
         
+        self.pick_target = 'comment'
         self.prev_tool = QgsMapCanvas.mapTool(self.canvas)
         self.canvas.setMapTool(self.tool_pick)
-    
-    def pointPicked(self, point):
-    
-        self.feedback_street = getNearest(self.street_layer, point)
-        
-        self.line_street.setText(self.feedback_street['stt_naam'])
-        
-        clearMarkers(self.canvas)
-        
-        marker = QgsVertexMarker(self.canvas)
-        marker.setCenter(point)
-        marker.setColor(QtGui.QColor(255,0,0))
-        marker.setIconSize(10)
-        marker.setIconType(QgsVertexMarker.ICON_BOX)
-        marker.setPenWidth(3)
-        
-        self.canvas.setMapTool(self.prev_tool)
     
     def submitFeedback(self):
     
@@ -213,7 +259,7 @@ class WalkAbleDockWidget(QtGui.QDockWidget, FORM_CLASS):
         
         user_id = '987654321'
         
-        street_id = str(self.feedback_street['wvk_id'])[:9]
+        street_id = self.feedback_id
         
         feedback_comfort, feedback_utility = '', ''
         if self.check_comfort.isChecked():
@@ -245,15 +291,51 @@ class WalkAbleDockWidget(QtGui.QDockWidget, FORM_CLASS):
         self.slider_rating_utility.setValue(3)
         
         self.field_comment.clear()
+    
+    
+    def pointPicked(self, cpoint):
+    
+        point = QgsPoint(cpoint.x(), cpoint.y())
+        street = getNearest(self.street_layer, point)
+        
+        if self.pick_target == 'comment':
+            field = self.line_street
+            color = QtGui.QColor(255,0,0)
+            self.feedback_id = str(street['wvk_id'])
+        elif self.pick_target == 'from':
+            field = self.line_route_from
+            color = QtGui.QColor(0,0,255)
+            self.from_pt = point
+        elif self.pick_target == 'to':
+            field = self.line_route_to
+            color = QtGui.QColor(0,255,0)
+            self.to_pt = point
+        
+        field.setText(street['stt_naam'])
+        
+        clearMarkers(self.canvas)
+        
+        addMarker(self.canvas, point, color)
+        
+        self.canvas.setMapTool(self.prev_tool)
 
 #--------------------------------------------------------------------------
 
+def addMarker(canvas, point, color):
+    
+    marker = QgsVertexMarker(canvas)
+    marker.setCenter(point)
+    marker.setColor(color)
+    marker.setIconSize(10)
+    marker.setIconType(QgsVertexMarker.ICON_BOX)
+    marker.setPenWidth(3)
+
 def clearMarkers(canvas):
         
-        vertex_items = [i for i in canvas.scene().items() if issubclass(type(i), (QgsVertexMarker, QgsRubberBand))]
-        for ver in vertex_items:
-            if ver in canvas.scene().items():
-                canvas.scene().removeItem(ver)
+    vertex_items = [i for i in canvas.scene().items() if issubclass(type(i), QgsVertexMarker)]
+    for ver in vertex_items:
+        if ver in canvas.scene().items():
+            canvas.scene().removeItem(ver)
         
 def getNearest(layer, point):
     
@@ -264,7 +346,6 @@ def getNearest(layer, point):
     # https://gis.stackexchange.com/a/118651
     nnfeature = layer.getFeatures(QgsFeatureRequest(nearest_id)).next()
     # Get the distance to this feature (it is not necessarily the nearest one)
-    print nnfeature.geometry().closestVertex(point)
     mindistance = point.distance(nnfeature.geometry().closestVertex(point)[0])
     px = point.x()
     py = point.y()
@@ -281,20 +362,24 @@ def getNearest(layer, point):
     
     return nnfeature
 
-def getCoords(address):
+def getCoords(address, layer):
         
     url = "http://nominatim.openstreetmap.org/search?format=jsonv2&q="
     try:
         req = urlopen(url + quote_plus(address))
         lst = json.loads(req.read().decode('utf-8'))
-        loc = map(float, [lst[0]['lat'], lst[0]['lon']])
+        loc = QgsPoint(float(lst[0]['lon']), float(lst[0]['lat']))
     except:
-        # when something goes wrong, e.g. timeout: return empty tuple
-        return ()
-    # otherwise, return the found WGS'84 coordinate
-    return tuple(loc)
+        # when something goes wrong, e.g. timeout
+        return None
+    
+    # transform WGS84 coords to local CRS
+    point = QgsCoordinateTransform(QgsCoordinateReferenceSystem(4326), layer.crs()).transform(loc)
+    
+    return point
+    
 
-class WeightedLengthProperter(QgsArcProperter):
+class WeightedDistanceProperter(QgsArcProperter):
     def __init__(self):
         QgsArcProperter.__init__(self)
         self.weighted_index = 9
@@ -335,24 +420,7 @@ class WeightedLengthProperter(QgsArcProperter):
                 routes_layer.deleteFeature(id)
             routes_layer.commitChanges()
     
-    
-"""         
-"""       
-    def getAddress(point):
-        
-        url = "http://nominatim.openstreetmap.org/reverse?format=jsonv2&"
-        query = 'lat={}&lon={}'.format(lat, lon) # ___FIX_THIS___
-        try:
-            req = urlopen(url + query)
-            lst = json.loads(req.read().decode('utf-8'))
-            stn = lst['address']['road']
-            
-        except:
-            # when something goes wrong, e.g. timeout: return empty tuple
-            return ()
-        # otherwise, return the found WGS'84 coordinate
-        return tuple(loc)
-     
+
 # based on code form: https://gis.stackexchange.com/questions/45094/how-to-programatically-check-for-a-mouse-click-in-qgis
 class PointTool(QgsMapTool):   
     def __init__(self, caller, prev_tool):
