@@ -87,7 +87,7 @@
          <string>Password</string>
         </property>
        </widget>
-       <widget class="QLabel" name="label">
+       <widget class="QLabel" name="label_login">
         <property name="geometry">
          <rect>
           <x>10</x>
@@ -100,7 +100,7 @@
          <string>Login and Load Saved Profile</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="button_login">
         <property name="geometry">
          <rect>
           <x>10</x>
@@ -113,7 +113,7 @@
          <string>Login</string>
         </property>
        </widget>
-       <widget class="QSpinBox" name="spinBox">
+       <widget class="QSpinBox" name="spin_age">
         <property name="geometry">
          <rect>
           <x>10</x>
@@ -123,7 +123,7 @@
          </rect>
         </property>
        </widget>
-       <widget class="QLabel" name="label_2">
+       <widget class="QLabel" name="label_age">
         <property name="geometry">
          <rect>
           <x>10</x>
@@ -136,7 +136,7 @@
          <string>Age</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit">
+       <widget class="QLineEdit" name="line_postcode">
         <property name="geometry">
          <rect>
           <x>10</x>
@@ -146,7 +146,7 @@
          </rect>
         </property>
        </widget>
-       <widget class="QLabel" name="label_3">
+       <widget class="QLabel" name="label_postcode">
         <property name="geometry">
          <rect>
           <x>10</x>
@@ -159,7 +159,7 @@
          <string>Post Code</string>
         </property>
        </widget>
-       <widget class="QLabel" name="label_4">
+       <widget class="QLabel" name="label_enterdetails">
         <property name="geometry">
          <rect>
           <x>150</x>
@@ -172,7 +172,7 @@
          <string>Or Enter Below</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="pushButton_2">
+       <widget class="QPushButton" name="button_save">
         <property name="geometry">
          <rect>
           <x>10</x>
@@ -185,7 +185,7 @@
          <string>Save for Future</string>
         </property>
        </widget>
-       <widget class="QCheckBox" name="checkBox">
+       <widget class="QCheckBox" name="check_impairment_wheelchair">
         <property name="geometry">
          <rect>
           <x>100</x>
@@ -198,7 +198,7 @@
          <string>Wheelchair</string>
         </property>
        </widget>
-       <widget class="QCheckBox" name="checkBox_2">
+       <widget class="QCheckBox" name="check_impairment_stroller">
         <property name="geometry">
          <rect>
           <x>190</x>
@@ -211,7 +211,7 @@
          <string>Baby Stroller</string>
         </property>
        </widget>
-       <widget class="QCheckBox" name="checkBox_3">
+       <widget class="QCheckBox" name="check_impairment_injury">
         <property name="geometry">
          <rect>
           <x>100</x>
@@ -224,7 +224,7 @@
          <string>Leg Injury</string>
         </property>
        </widget>
-       <widget class="QCheckBox" name="checkBox_4">
+       <widget class="QCheckBox" name="check_impairment_vision">
         <property name="geometry">
          <rect>
           <x>190</x>
@@ -237,7 +237,7 @@
          <string>Limited Vision</string>
         </property>
        </widget>
-       <widget class="QLabel" name="label_5">
+       <widget class="QLabel" name="label_impairments">
         <property name="geometry">
          <rect>
           <x>100</x>
@@ -250,7 +250,7 @@
          <string>Mobility Impairments</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_2">
+       <widget class="QLineEdit" name="line_impairment_other">
         <property name="geometry">
          <rect>
           <x>100</x>
@@ -263,7 +263,7 @@
          <string>Other, please specify</string>
         </property>
        </widget>
-       <widget class="Line" name="line">
+       <widget class="Line" name="divider_details">
         <property name="geometry">
          <rect>
           <x>70</x>
@@ -933,7 +933,7 @@
      </widget>
     </item>
     <item row="0" column="0">
-     <widget class="QLabel" name="label_6">
+     <widget class="QLabel" name="label_logo">
       <property name="text">
        <string/>
       </property>
