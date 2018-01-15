@@ -28,10 +28,10 @@
   <mapcanvas>
     <units>meters</units>
     <extent>
-      <xmin>496254.48294285841984674</xmin>
-      <ymin>6781016.35745308361947536</ymin>
-      <xmax>504185.07278234494151548</xmax>
-      <ymax>6787158.03874125704169273</ymax>
+      <xmin>496773.87879147217608988</xmin>
+      <ymin>6781023.98450418189167976</ymin>
+      <xmax>503660.37810757313854992</xmax>
+      <ymax>6787150.96810855343937874</ymax>
     </extent>
     <rotation>0</rotation>
     <projections>1</projections>
@@ -447,6 +447,12 @@ def my_form_open(dialog, layer, feature):
       <previewExpression>COALESCE( "identifica", '&lt;NULL>' )</previewExpression>
     </maplayer>
     <maplayer simplifyAlgorithm="0" minimumScale="0" maximumScale="1e+08" simplifyDrawingHints="1" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" readOnly="0" geometry="Polygon" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
+      <extent>
+        <xmin>91504.42028809999465011</xmin>
+        <ymin>434461.17767300002742559</ymin>
+        <xmax>95515.12347409999347292</xmax>
+        <ymax>438009.81830899999476969</ymax>
+      </extent>
       <id>Landcover_clipped20180114202231968</id>
       <datasource>./Landcover_clipped.shx</datasource>
       <keywordList>
@@ -1743,7 +1749,7 @@ def my_form_open(dialog, layer, feature):
               <prop k="customdash_unit" v="MM"/>
               <prop k="draw_inside_polygon" v="0"/>
               <prop k="joinstyle" v="bevel"/>
-              <prop k="line_color" v="49,163,84,255"/>
+              <prop k="line_color" v="41,139,70,255"/>
               <prop k="line_style" v="solid"/>
               <prop k="line_width" v="1"/>
               <prop k="line_width_unit" v="MM"/>
@@ -1762,7 +1768,7 @@ def my_form_open(dialog, layer, feature):
               <prop k="customdash_unit" v="MM"/>
               <prop k="draw_inside_polygon" v="0"/>
               <prop k="joinstyle" v="bevel"/>
-              <prop k="line_color" v="0,104,55,255"/>
+              <prop k="line_color" v="0,75,38,255"/>
               <prop k="line_style" v="solid"/>
               <prop k="line_width" v="1"/>
               <prop k="line_width_unit" v="MM"/>
