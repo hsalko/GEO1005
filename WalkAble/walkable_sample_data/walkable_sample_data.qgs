@@ -28,35 +28,33 @@
   <mapcanvas>
     <units>meters</units>
     <extent>
-      <xmin>496774.97409885079832748</xmin>
-      <ymin>6781024.4350892249494791</ymin>
-      <xmax>503660.32390587747795507</xmax>
-      <ymax>6787150.92642301879823208</ymax>
+      <xmin>91404.15270844999758992</xmin>
+      <ymin>434372.4616571000078693</ymin>
+      <xmax>95615.39105374999053311</xmax>
+      <ymax>438098.53432490001432598</ymax>
     </extent>
     <rotation>0</rotation>
     <projections>1</projections>
     <destinationsrs>
       <spatialrefsys>
-        <proj4>+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs</proj4>
-        <srsid>3857</srsid>
-        <srid>3857</srid>
-        <authid>EPSG:3857</authid>
-        <description>WGS 84 / Pseudo Mercator</description>
-        <projectionacronym>merc</projectionacronym>
-        <ellipsoidacronym>WGS84</ellipsoidacronym>
+        <proj4>+proj=sterea +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +towgs84=565.2369,50.0087,465.658,-0.406857,0.350733,-1.87035,4.0812 +units=m +no_defs</proj4>
+        <srsid>2517</srsid>
+        <srid>28992</srid>
+        <authid>EPSG:28992</authid>
+        <description>Amersfoort / RD New</description>
+        <projectionacronym>sterea</projectionacronym>
+        <ellipsoidacronym>bessel</ellipsoidacronym>
         <geographicflag>false</geographicflag>
       </spatialrefsys>
     </destinationsrs>
     <rendermaptile>0</rendermaptile>
     <layer_coordinate_transform_info>
-      <layer_coordinate_transform destAuthId="EPSG:3857" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="POIs_clipped20180112153356697"/>
-      <layer_coordinate_transform destAuthId="EPSG:3857" srcAuthId="EPSG:3857" srcDatumTransform="-1" destDatumTransform="-1" layerid="OpenLayers_plugin_layer20180114202427338"/>
-      <layer_coordinate_transform destAuthId="EPSG:3857" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Streets20180113035145215"/>
-      <layer_coordinate_transform destAuthId="EPSG:3857" srcAuthId="EPSG:3857" srcDatumTransform="-1" destDatumTransform="-1" layerid="OpenStreetMap20180114203259826"/>
-      <layer_coordinate_transform destAuthId="EPSG:3857" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Trees_clipped20180112172713575"/>
-      <layer_coordinate_transform destAuthId="EPSG:3857" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Buildings_clipped20180112153349622"/>
-      <layer_coordinate_transform destAuthId="EPSG:3857" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Lights_clipped20180112153353904"/>
-      <layer_coordinate_transform destAuthId="EPSG:3857" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Landcover_clipped20180114202231968"/>
+      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="POIs_clipped20180112153356697"/>
+      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Streets20180113035145215"/>
+      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Trees_clipped20180112172713575"/>
+      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Buildings_clipped20180112153349622"/>
+      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Lights_clipped20180112153353904"/>
+      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Landcover_clipped20180114202231968"/>
     </layer_coordinate_transform_info>
   </mapcanvas>
   <layer-tree-canvas>
@@ -539,8 +537,6 @@ def my_form_open(dialog, layer, feature):
             </layer>
           </symbol>
         </source-symbol>
-        <colorramp type="randomcolors" name="[source]"/>
-        <invertedcolorramp value="0"/>
         <rotation/>
         <sizescale scalemethod="diameter"/>
       </renderer-v2>
@@ -2340,14 +2336,16 @@ def my_form_open(dialog, layer, feature):
     <WMSServiceTitle type="QString"></WMSServiceTitle>
     <WFSLayers type="QStringList"/>
     <WMSContactMail type="QString"></WMSContactMail>
+    <WMSRestrictedComposers type="QStringList"/>
+    <WMSRestrictedLayers type="QStringList"/>
     <PositionPrecision>
       <DecimalPlaces type="int">2</DecimalPlaces>
       <Automatic type="bool">true</Automatic>
       <DegreeFormat type="QString">MU</DegreeFormat>
     </PositionPrecision>
     <WCSUrl type="QString"></WCSUrl>
-    <WMSContactPhone type="QString"></WMSContactPhone>
     <WMSServiceCapabilities type="bool">false</WMSServiceCapabilities>
+    <WMSContactPhone type="QString"></WMSContactPhone>
     <WMSServiceAbstract type="QString"></WMSServiceAbstract>
     <WMSContactPosition type="QString"></WMSContactPosition>
     <WMSAddWktGeometry type="bool">false</WMSAddWktGeometry>
