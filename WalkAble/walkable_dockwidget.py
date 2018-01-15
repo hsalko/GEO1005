@@ -70,7 +70,14 @@ class WalkAbleDockWidget(QtGui.QDockWidget, FORM_CLASS):
         self.from_marker = QgsVertexMarker(self.canvas)
         self.to_marker = QgsVertexMarker(self.canvas)
 
-        # my profile tab
+        #add logo
+        self.label_6 = QtGui.QLabel(self.dockWidgetContents)
+        self.label_6.setPixmap(QtGui.QPixmap(":/plugins/WalkAble/UI_Logo.png"))
+        self.label_6.setObjectName("label_6")
+        self.gridLayout.addWidget(self.label_6, 0, 0, 1, 1)
+
+        
+        #  my profile tab
         self.button_skip.clicked.connect(self.skipLogin)
 
         # view map tab
