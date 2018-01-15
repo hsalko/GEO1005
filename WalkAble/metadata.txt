@@ -30,7 +30,7 @@ tags=
 
 homepage=
 category=Plugins
-icon=icon.png
+icon=Walkable_UIsize.png
 # experimental flag
 experimental=False
 
