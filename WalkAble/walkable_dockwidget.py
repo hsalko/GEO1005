@@ -74,6 +74,7 @@ class WalkAbleDockWidget(QtGui.QDockWidget, FORM_CLASS):
         self.label_logo.setPixmap(QtGui.QPixmap(os.path.dirname(__file__) + os.path.sep + 'UI_Logo.png'))
         
         #  my profile tab
+        self.button_login.clicked.connect(self.loadProfile)
         self.button_skip.clicked.connect(self.skipLogin)
 
         # view map tab
@@ -131,6 +132,15 @@ class WalkAbleDockWidget(QtGui.QDockWidget, FORM_CLASS):
     #--------------------------------------------------------------------------
     
     # my profile tab
+    
+    def loadProfile(self):
+        
+        self.spin_age.setValue(42)
+        self.line_postcode.setText('3037RC')
+        self.check_impairment_injury.setChecked(True)
+        self.check_impairment_vision.setChecked(True)
+        
+        self.iface.messageBar().pushMessage("Logged in", "Welcome " + str(self.line_login_email.text()), level=QgsMessageBar.INFO, duration=5)
     
     def skipLogin(self):
         
