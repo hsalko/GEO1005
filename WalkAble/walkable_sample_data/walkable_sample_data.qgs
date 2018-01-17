@@ -20,7 +20,7 @@
     <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Checked" id="Buildings_clipped20180112153349622" source="C:/Users/Ioanna/Documents/GitHub/GEO1005_2017_G08/WalkAble/walkable_sample_data/Buildings_clipped.shx" name="Buildings">
       <customproperties/>
     </layer-tree-layer>
-    <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Checked" id="Water_areas20180115214832490" source="C:/Users/Ioanna/Documents/GitHub/GEO1005_2017_G08/WalkAble/walkable_sample_data/Water areas.shp" name="Water areas">
+    <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Checked" id="Water20180116131438523" source="C:\Users\Ioanna\Documents\GitHub\GEO1005_2017_G08\WalkAble\walkable_sample_data\Water.shp" name="Water">
       <customproperties/>
     </layer-tree-layer>
   </layer-tree-group>
@@ -58,6 +58,7 @@
       <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Lights_clipped20180112153353904"/>
       <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Landcover_clipped20180114202231968"/>
       <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Water_areas20180115214523021"/>
+      <layer_coordinate_transform destAuthId="EPSG:28992" srcAuthId="EPSG:28992" srcDatumTransform="-1" destDatumTransform="-1" layerid="Water20180116131438523"/>
     </layer_coordinate_transform_info>
   </mapcanvas>
   <layer-tree-canvas>
@@ -67,7 +68,7 @@
       <item>POIs_clipped20180112153356697</item>
       <item>Trees_clipped20180112172713575</item>
       <item>Streets20180113035145215</item>
-      <item>Water_areas20180115214832490</item>
+      <item>Water20180116131438523</item>
     </custom-order>
   </layer-tree-canvas>
   <legend updateDrawingOrder="true">
@@ -96,9 +97,9 @@
         <legendlayerfile isInOverview="0" layerid="Buildings_clipped20180112153349622" visible="1"/>
       </filegroup>
     </legendlayer>
-    <legendlayer drawingOrder="-1" open="true" checked="Qt::Checked" name="Water areas" showFeatureCount="0">
+    <legendlayer drawingOrder="-1" open="true" checked="Qt::Checked" name="Water" showFeatureCount="0">
       <filegroup open="true" hidden="false">
-        <legendlayerfile isInOverview="0" layerid="Water_areas20180115214832490" visible="1"/>
+        <legendlayerfile isInOverview="0" layerid="Water20180116131438523" visible="1"/>
       </filegroup>
     </legendlayer>
   </legend>
@@ -1962,12 +1963,12 @@ def my_form_open(dialog, layer, feature):
       <previewExpression></previewExpression>
     </maplayer>
     <maplayer simplifyAlgorithm="0" minimumScale="0" maximumScale="1e+08" simplifyDrawingHints="1" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" readOnly="0" geometry="Polygon" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
-      <id>Water_areas20180115214832490</id>
-      <datasource>./Water areas.shp</datasource>
+      <id>Water20180116131438523</id>
+      <datasource>./Water.shp</datasource>
       <keywordList>
         <value></value>
       </keywordList>
-      <layername>Water areas</layername>
+      <layername>Water</layername>
       <srs>
         <spatialrefsys>
           <proj4>+proj=sterea +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +towgs84=565.2369,50.0087,465.658,-0.406857,0.350733,-1.87035,4.0812 +units=m +no_defs</proj4>
@@ -2015,13 +2016,13 @@ def my_form_open(dialog, layer, feature):
           <symbol alpha="1" clip_to_extent="1" type="fill" name="0">
             <layer pass="0" class="SimpleFill" locked="0">
               <prop k="border_width_map_unit_scale" v="0,0,0,0,0,0"/>
-              <prop k="color" v="156,199,208,255"/>
+              <prop k="color" v="165,191,221,255"/>
               <prop k="joinstyle" v="bevel"/>
               <prop k="offset" v="0,0"/>
               <prop k="offset_map_unit_scale" v="0,0,0,0,0,0"/>
               <prop k="offset_unit" v="MM"/>
-              <prop k="outline_color" v="0,0,0,0"/>
-              <prop k="outline_style" v="solid"/>
+              <prop k="outline_color" v="114,133,132,255"/>
+              <prop k="outline_style" v="no"/>
               <prop k="outline_width" v="0.26"/>
               <prop k="outline_width_unit" v="MM"/>
               <prop k="style" v="solid"/>
@@ -2241,7 +2242,7 @@ def my_form_open(dialog, layer, feature):
       <excludeAttributesWMS/>
       <excludeAttributesWFS/>
       <attributeactions default="-1"/>
-      <attributetableconfig actionWidgetStyle="dropDown" sortExpression="" sortOrder="0">
+      <attributetableconfig actionWidgetStyle="dropDown" sortExpression="" sortOrder="447277380">
         <columns>
           <column width="-1" hidden="0" type="field" name="id"/>
           <column width="-1" hidden="0" type="field" name="BG2012"/>
@@ -2352,7 +2353,7 @@ def my_form_open(dialog, layer, feature):
         <value>POIs_clipped20180112153356697</value>
         <value>Streets20180113035145215</value>
         <value>Trees_clipped20180112172713575</value>
-        <value>Water_areas20180115214832490</value>
+        <value>Water20180116131438523</value>
       </LayerSnappingList>
       <LayerSnappingEnabledList type="QStringList">
         <value>enabled</value>
